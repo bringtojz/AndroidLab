@@ -49,6 +49,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:16.0.3'
     implementation "org.jetbrains.anko:anko-commons:$anko_version"
     implementation 'com.github.dimorinny:floating-text-button:0.0.4'
+    implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
 
     //Networking
     implementation "com.squareup.okhttp3:okhttp:$okhttp_version"

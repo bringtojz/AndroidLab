@@ -22,9 +22,20 @@
             android:layout_margin="5dp"
             android:text="Forgot Password"
             android:textColor="@color/white"
-            android:textSize="18dp" />
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/txvResultLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_above="@+id/txvRegister"
+            android:layout_margin="5dp"
+            android:text="xxx"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
 
         <TextView
+            android:id="@+id/txvRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -32,7 +43,7 @@
             android:layout_margin="5dp"
             android:text="Register"
             android:textColor="@color/white"
-            android:textSize="18dp" />
+            android:textSize="18sp" />
 
         <ImageView
 
@@ -66,15 +77,14 @@
         android:padding="20dp">
 
 
-        <Button
+        <com.facebook.login.widget.LoginButton
             android:id="@+id/btnLoginWithFacebook"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:background="@drawable/btn_facebook"
-            android:text="Login With Facebook"
-            android:textColor="@color/white"
-            android:textSize="18dp" />
+            android:textSize="18sp"
+            android:background="@drawable/btn_facebook"/>
+
         <Button
             android:id="@+id/btnLoginWithGoogle"
             android:layout_width="match_parent"
@@ -83,7 +93,7 @@
             android:background="@drawable/btn_google"
             android:text="Login With Gmail"
             android:textColor="@color/white"
-            android:textSize="18dp" />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/btnLoginWithEmail"
@@ -93,7 +103,7 @@
             android:background="@drawable/input_buttun"
             android:text="Login With Email"
             android:textColor="@color/white"
-            android:textSize="18dp" />
+            android:textSize="18sp" />
 
 
     </LinearLayout>
