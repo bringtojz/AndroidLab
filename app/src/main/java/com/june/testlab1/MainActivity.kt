@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuth
 class MainActivity : AppCompatActivity() {
 
     var mAuth: FirebaseAuth? = null
-    private val TAG : String = "MainActivity"
+    private val TAG: String = "MainActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,17 +22,18 @@ class MainActivity : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
 
-        if (mAuth!!.currentUser != null){
-            Log.d(TAG , "Continue With" + mAuth!!.currentUser!!.email)
+        if (mAuth!!.currentUser != null) {
+            Log.d(TAG, "Continue With" + mAuth!!.currentUser!!.email)
             startActivity(Intent(this@MainActivity, ResultActivity::class.java))
             finish()
 
         }
-        btnLoginWithEmail.setOnClickListener{
+        btnLoginWithEmail.setOnClickListener {
             startActivity(Intent(this@MainActivity, LoginActivity::class.java))
         }
 
     }
+}
 
 
 

@@ -1,9 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    android:orientation="vertical"
     tools:context=".ResultActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+
+        android:padding="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_centerVertical="true"
+            android:id="@+id/txvEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="15dp"
+            android:text="Email :"/>
+
+        <TextView
+            android:id="@+id/txvUid"
+            android:layout_below="@id/txvEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="UID :"
+            android:textSize="15dp"
+            android:gravity="center"
+            />
+
+        <ru.dimorinny.floatingtextbutton.FloatingTextButton
+            android:id="@+id/btnSignOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            app:floating_background_color="@color/google"
+            app:floating_left_icon="@drawable/ic_reply_black_24dp"
+            app:floating_title="Sign out"
+            app:floating_title_color="@android:color/white"/>
+
+
+
+
+    </RelativeLayout>
+</RelativeLayout>

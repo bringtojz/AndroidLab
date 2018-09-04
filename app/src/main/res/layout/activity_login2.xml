@@ -44,19 +44,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
+            android:inputType="textPassword"
             android:gravity="center"
             android:background="@drawable/input_frame"
             android:layout_margin="10dp"
             android:padding="10dp"/>
-        <Button
+
+        <ru.dimorinny.floatingtextbutton.FloatingTextButton
             android:id="@+id/btnLogin"
-            android:layout_below="@id/edtPassword"
+
             android:layout_centerHorizontal="true"
-            android:layout_width="match_parent"
+            android:layout_below="@id/edtPassword"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:background="@drawable/btn_google"
-            android:text="Login"/>
+            app:floating_background_color="@color/orange"
+            app:floating_left_icon="@drawable/ic_input_black_24dp"
+            app:floating_title="Login"
+            app:floating_title_color="@android:color/white"
+            />
 
 
 
