@@ -3,8 +3,8 @@
 
     <item android:drawable="@color/white"/>
 <item>
-    <bitmap android:src="@drawable/splash" android:gravity="center"/>
-</item>
+    <bitmap android:src="@drawable/blur" android:gravity="center"/></item>
+
 
 
 

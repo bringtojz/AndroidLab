@@ -11,4 +11,8 @@
         <item name="android:windowBackground">@drawable/splash_back</item>
         <item name="android:windowFullscreen">true</item>
     </style>
+    <style name="SplashTheme." parent="AppTheme">
+        <item name="android:windowBackground">@drawable/blur</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
 </resources>
