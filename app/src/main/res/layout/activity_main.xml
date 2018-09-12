@@ -78,26 +78,61 @@
             android:textColor="@color/white"
             android:textSize="18sp" />
 
-        <Button
-            android:id="@+id/btnLoginWithGoogle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+
+
+        <RelativeLayout
+
+            android:padding="10dp"
             android:layout_margin="10dp"
+            android:clickable="true"
+            android:foreground="?selectableItemBackground"
             android:background="@drawable/btn_google"
-            android:text="Login With Gmail"
-            android:textColor="@color/white"
-            android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/btnLoginWithEmail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@id/txt1"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_gmail_24dp"/>
+            <TextView
+                android:id="@+id/txt1"
+                android:layout_centerInParent="true"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LOGIN WITH GMAIL"
+                android:textSize="18dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:padding="10dp"
             android:layout_margin="10dp"
+            android:clickable="true"
+            android:foreground="?selectableItemBackground"
             android:background="@drawable/input_buttun"
-            android:text="Login With Email"
-            android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <ImageView
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@id/btnLoginWithEmail"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_email_black_24dp"/>
+            <TextView
+                android:id="@+id/btnLoginWithEmail"
+                android:layout_centerInParent="true"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LOGIN WITH EMAIL"
+                android:textSize="18dp"/>
 
+        </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>

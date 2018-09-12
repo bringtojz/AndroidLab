@@ -15,6 +15,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <Button
+            android:id="@+id/btnSearchActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SEARCH BRANCH"/>
         <TextView
             android:layout_centerVertical="true"
             android:id="@+id/txvEmail"

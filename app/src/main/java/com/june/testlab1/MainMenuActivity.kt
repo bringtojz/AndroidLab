@@ -6,8 +6,9 @@ import android.os.Bundle
 import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_mainmenu.*
 
-class Mainmenu : AppCompatActivity() {
+class MainMenuActivity : AppCompatActivity() {
 
 
 
@@ -15,7 +16,9 @@ class Mainmenu : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mainmenu)
 
-
+        btnSearch.setOnClickListener{
+            edtTypeBranch.setText(edtBranch.text.toString())
+        }
 }    // ...
 }
 

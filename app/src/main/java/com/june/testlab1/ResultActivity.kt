@@ -40,6 +40,9 @@ class ResultActivity : AppCompatActivity() {
             Log.d(TAG,"Signed Out!")
             startActivity(Intent(this@ResultActivity,MainActivity::class.java))
         }
+        btnSearchActivity.setOnClickListener{
+            startActivity(Intent(this@ResultActivity,MainMenuActivity::class.java))
+        }
     }
     override fun onStart() {
         super.onStart()

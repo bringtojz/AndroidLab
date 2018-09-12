@@ -52,7 +52,6 @@
 
         <ru.dimorinny.floatingtextbutton.FloatingTextButton
             android:id="@+id/btnLogin"
-
             android:layout_centerHorizontal="true"
             android:layout_below="@id/edtPassword"
             android:layout_width="wrap_content"
