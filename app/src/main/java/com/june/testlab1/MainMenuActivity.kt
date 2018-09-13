@@ -16,6 +16,7 @@ class MainMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mainmenu)
 
+
         btnSearch.setOnClickListener{
             edtTypeBranch.setText(edtBranch.text.toString())
         }

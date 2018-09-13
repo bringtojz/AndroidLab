@@ -74,6 +74,35 @@ class APIModule {
 
             return retrofit.create(APIService::class.java)
             }
+
+        fun connectsearchbranch (): APIService {
+
+            val logging = HttpLoggingInterceptor ()
+            logging.apply {
+                level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BASIC else HttpLoggingInterceptor.Level.NONE
+            }
+            var header = Interceptor { chain ->
+                chain.proceed(chain.request().newBuilder()
+                        .addHeader("Content-Type", "application/x-www-form-urlencoded")
+                        .addHeader("","")
+                        .build())
+            }
+            val okHttpClient = OkHttpClient.Builder()
+                    .addInterceptor(logging)
+                    .addInterceptor(header)
+                    .connectTimeout(20,TimeUnit.SECONDS)
+                    .writeTimeout(20,TimeUnit.SECONDS)
+                    .readTimeout(20,TimeUnit.SECONDS)
+                    .build()
+            val retrofit = Retrofit.Builder()
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                    .addConverterFactory(MoshiConverterFactory.create())
+                    .client(okHttpClient)
+                    .baseUrl("http://58.137.103.187:8081")
+                    .build()
+
+            return retrofit.create(APIService::class.java)
+        }
         }
     }
 

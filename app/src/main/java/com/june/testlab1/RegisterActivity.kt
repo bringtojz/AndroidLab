@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
+import com.june.testlab1.ui.ResultActivity
 import kotlinx.android.synthetic.main.activity_register.*
 import org.jetbrains.anko.toast
 

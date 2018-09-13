@@ -10,7 +10,7 @@ import com.facebook.FacebookException
 import kotlinx.android.synthetic.main.activity_main.*
 import com.google.firebase.auth.FirebaseAuth
 import com.facebook.login.LoginResult
-
+import com.june.testlab1.ui.ResultActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -37,17 +37,17 @@ class MainActivity : AppCompatActivity() {
         }
 
         txvRegister.setOnClickListener{
-            startActivity(Intent(this@MainActivity,RegisterActivity::class.java))
+            startActivity(Intent(this@MainActivity, RegisterActivity::class.java))
         }
 
         callbackManager = CallbackManager.Factory.create()
         btnLoginWithFacebook.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
                     override fun onSuccess(result: LoginResult?) {
-                        txvResultLogin.text = "Login Success ${ result?.accessToken?.userId }" + "${ result?.accessToken?.token }"
+                     //   txvResultLogin.text = "Login Success ${ result?.accessToken?.userId }" + "${ result?.accessToken?.token }"
                     }
 
                     override fun onCancel() {
-                        txvResultLogin.text = "Login Canceled"
+                    //    txvResultLogin.text = "Login Canceled"
                     }
 
                     override fun onError(error: FacebookException?) {

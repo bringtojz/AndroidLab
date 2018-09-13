@@ -2,57 +2,124 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:orientation="vertical"
-    tools:context=".ResultActivity">
+    tools:context=".ui.ResultActivity">
 
-    <RelativeLayout
 
-        android:padding="50dp"
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_above="@id/bottombar"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/btnSearchActivity"
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:background="@color/facebook"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:id="@+id/bottombar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+
+        <RelativeLayout
+            android:id="@+id/btnPage1"
+            android:clickable="true"
+            android:background="?selectableItemBackground"
+            android:paddingTop="8dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="12dp"
+            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="SEARCH BRANCH"/>
-        <TextView
-            android:layout_centerVertical="true"
-            android:id="@+id/txvEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginBottom="15dp"
-            android:text="Email :"/>
-
-        <TextView
-            android:id="@+id/txvUid"
-            android:layout_below="@id/txvEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="UID :"
-            android:textSize="15dp"
-            android:gravity="center"
-            />
-
-        <ru.dimorinny.floatingtextbutton.FloatingTextButton
-            android:id="@+id/btnSignOut"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            app:floating_background_color="@color/google"
-            app:floating_left_icon="@drawable/ic_reply_black_24dp"
-            app:floating_title="Sign out"
-            app:floating_title_color="@android:color/white"/>
+            android:layout_height="match_parent">
 
 
+            <ImageView
+                android:id="@+id/imgSearchMenu"
+                android:layout_centerHorizontal="true"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_search_color_64dp"/>
+
+            <TextView
+                android:id="@+id/txtSearch"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Search"
+                android:textSize="12dp"
+                android:textColor="@color/white"/>
+
+        </RelativeLayout>
 
 
-    </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/btnPage2"
+            android:clickable="true"
+            android:background="@color/orange"
+            android:paddingTop="8dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="12dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/imgMa"
+                android:layout_centerHorizontal="true"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_tools1_color_64dp"/>
+
+            <TextView
+                android:id="@+id/txtMaintenance"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Maintenance"
+                android:textSize="12dp"
+                android:textColor="@color/white"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/btnPage3"
+            android:clickable="true"
+            android:background="@color/orange"
+            android:paddingTop="8dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="12dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/imgProfile"
+                android:layout_centerHorizontal="true"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_team_color_64dp"/>
+
+            <TextView
+                android:id="@+id/txtProfile"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:textSize="12dp"
+                android:textColor="@color/white"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
 </RelativeLayout>

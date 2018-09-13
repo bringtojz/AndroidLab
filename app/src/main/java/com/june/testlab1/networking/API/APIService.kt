@@ -17,4 +17,7 @@ interface APIService {
 
     @POST ("planetary/apod")
     fun nasa (@Body nasa: Nasa): Observable<ResponseBody>
+
+//    @POST ("KE_SETUPS/v1/GetPosBranch")
+//    fun searchbranch (@Body )
 }

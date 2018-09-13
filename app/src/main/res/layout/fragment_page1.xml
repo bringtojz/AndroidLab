@@ -15,12 +15,13 @@
         <EditText
             android:id="@+id/edtBranch"
             android:inputType="textCapCharacters"
+            android:maxLength="4"
             android:textAllCaps="true"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="20dp"
+            android:layout_margin="10dp"
             android:gravity="center"
+            android:layout_alignParentLeft="true"
             android:hint="Branch" />
 
         <EditText
@@ -29,6 +30,7 @@
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:layout_alignParentRight="true"
             android:gravity="center"
             android:enabled="false"
             android:hint="TypeBranch" />
