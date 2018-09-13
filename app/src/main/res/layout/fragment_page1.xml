@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MainMenuActivity"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -13,7 +12,7 @@
         android:layout_weight="1">
 
         <EditText
-            android:id="@+id/edtBranch"
+            android:id="@+id/edtBranchID"
             android:inputType="textCapCharacters"
             android:maxLength="4"
             android:textAllCaps="true"
@@ -26,7 +25,7 @@
 
         <EditText
             android:id="@+id/edtTypeBranch"
-            android:layout_toRightOf="@+id/edtBranch"
+            android:layout_toRightOf="@+id/edtBranchID"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -35,28 +34,53 @@
             android:enabled="false"
             android:hint="TypeBranch" />
 
+        <TextView
+            android:id="@+id/txtBranchName"
+            android:layout_below="@+id/edtBranchID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="10dp"
+            android:hint="BranchName : "
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/txtBranchNameDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtBranchID"
+            android:layout_toRightOf="@id/txtBranchName"
+            android:layout_marginEnd="-10dp"
+            android:layout_marginTop="-10dp"
+            android:enabled="false"
+            android:text=""
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/txvTel"
-            android:layout_below="@+id/edtBranch"
+            android:layout_below="@+id/txtBranchName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginBottom="10dp"
             android:hint="Tel: "
-            android:textSize="18sp"/>
-
-
-
-
-        <TextView
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+        <EditText
             android:id="@+id/txvTelDetail"
-            android:layout_below="@id/edtBranch"
+            android:layout_below="@id/txtBranchName"
             android:layout_toRightOf="@id/txvTel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:textSize="18sp"/>
+            android:enabled="false"
+            android:layout_marginTop="-10dp"
+            android:textColor="@color/black"
+            android:text="081-1111111"
+
+            android:textSize="16sp"/>
         <TextView
             android:id="@+id/txvAddress"
             android:layout_below="@+id/txvTel"
@@ -64,7 +88,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:hint="Address: "
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:textStyle="bold"/>
         <TextView
             android:id="@+id/txvAddressDetail"
             android:layout_below="@id/txvTelDetail"
@@ -72,10 +97,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="-5dp"
             android:layout_alignParentBottom="true"
-            android:text=""
-            android:textSize="18sp"/>
+            android:text="อาคารเจ้าพระทาวเวอร์ ชั้น 1 ห้อง 109 ซอยวัดสวนพลู  บางรัก เขตบางรัก กรุงเทพมหานคร 10500"
+            android:textSize="16sp"
+            android:textColor="@color/black" />
 
     </RelativeLayout>
 
@@ -83,6 +109,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/txtTaxBranchName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:text="Tax Branch Name :"/>
+        <EditText
+            android:id="@+id/txtTaxBranchNameDetail"
+            android:layout_toRightOf="@id/txtTaxBranchName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:layout_marginLeft="10dp"
+            android:text="xxxxxxxx"
+            android:textSize="16dp"
+            />
 
     </RelativeLayout>
 

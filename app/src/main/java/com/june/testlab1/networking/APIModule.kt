@@ -84,7 +84,8 @@ class APIModule {
             var header = Interceptor { chain ->
                 chain.proceed(chain.request().newBuilder()
                         .addHeader("Content-Type", "application/x-www-form-urlencoded")
-                        .addHeader("","")
+                        .addHeader("app_id","SETUP")
+                        .addHeader("app_key","85FDB4A6-B919-439E-9F56-195D51C5A2F3")
                         .build())
             }
             val okHttpClient = OkHttpClient.Builder()
