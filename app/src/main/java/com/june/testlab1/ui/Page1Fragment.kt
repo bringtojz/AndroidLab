@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 
 import com.june.testlab1.R
 import com.june.testlab1.networking.APIModule
@@ -16,7 +17,6 @@ import com.june.testlab1.networking.modelAPI.BranchReq
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.*
-import kotlinx.android.synthetic.main.activity_mainmenu.*
 import kotlinx.android.synthetic.main.fragment_page1.*
 
 
@@ -46,19 +46,51 @@ class Page1Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        edtBranchID.setOnEditorActionListener() { v, actionId, event ->
+            if(actionId == EditorInfo.IME_ACTION_SEARCH){
+                var body: BranchReq = BranchReq(edtBranchID.text.toString())
 
-        edtBranchID.setOnClickListener {
-            var body: BranchReq = BranchReq("")
+                APIModule.connectsearchbranch().searchbranch(body)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(
+                                //on Next 200 OK
+                                { Log.e("Status", "On Next")
+                                    txtBranchNameDetail.text = it.branch!![0]!!.branchName.toString()
+                                    edtTypeBranch.setText(it.branch!![0]!!.branchType)
+                                    txvTelDetail.text = it.branch!![0]!!.taxTelephone.toString()
+                                    txvAddressDetail.text = it.branch!![0]!!.nameAddress.toString()
+                                    txtTaxBranchNameDetail.setText (it.branch!![0]!!.taxBranchName)
+                                    txtTimeOpenDetail.text = it.branch!![0]!!.operatingDatetime.toString()
+
+                                },
+                                //on Error
+                                { Log.e("Status", "On Error") },
+                                //On Complete
+                                { Log.e("Status", "On Complete") }
+                        )
+
+                true
+            } else {
+                false
+            }
+        }
+
+        btnSearch.setOnClickListener {
+            var body: BranchReq = BranchReq(edtBranchID.text.toString())
 
             APIModule.connectsearchbranch().searchbranch(body)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(
                             //on Next 200 OK
-                            {
-
-
-
+                            { Log.e("Status", "On Next")
+                                txtBranchNameDetail.text = it.branch!![0]!!.branchName.toString()
+                                edtTypeBranch.setText(it.branch!![0]!!.branchType)
+                                txvTelDetail.text = it.branch!![0]!!.taxTelephone.toString()
+                                txvAddressDetail.text = it.branch!![0]!!.nameAddress.toString()
+                                txtTaxBranchNameDetail.setText (it.branch!![0]!!.taxBranchName)
+                                txtTimeOpenDetail.text = it.branch!![0]!!.operatingDatetime.toString()
                             },
                             //on Error
                             { Log.e("Status", "On Error") },

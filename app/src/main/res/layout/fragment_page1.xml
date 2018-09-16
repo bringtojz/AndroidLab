@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:gravity="center"
+            android:imeOptions="actionSearch"
             android:layout_alignParentLeft="true"
             android:hint="Branch" />
 
@@ -32,6 +33,7 @@
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:enabled="false"
+            android:textColor="@color/black"
             android:hint="TypeBranch" />
 
         <TextView
@@ -41,20 +43,21 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginBottom="10dp"
-            android:hint="BranchName : "
+            android:text="BranchName : "
             android:textSize="18sp"
             android:textColor="@color/black"
             android:textStyle="bold"/>
 
-        <EditText
+        <TextView
             android:id="@+id/txtBranchNameDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/edtBranchID"
+            android:layout_marginBottom="-10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="-8dp"
             android:layout_toRightOf="@id/txtBranchName"
-            android:layout_marginEnd="-10dp"
-            android:layout_marginTop="-10dp"
-            android:enabled="false"
+            android:textColor="@color/black"
             android:text=""
             android:textSize="16sp" />
 
@@ -65,18 +68,18 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginBottom="10dp"
-            android:hint="Tel: "
+            android:text="Tel : "
             android:textSize="18sp"
             android:textColor="@color/black"
             android:textStyle="bold"/>
-        <EditText
+        <TextView
             android:id="@+id/txvTelDetail"
             android:layout_below="@id/txtBranchName"
             android:layout_toRightOf="@id/txvTel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:enabled="false"
-            android:layout_marginTop="-10dp"
+            android:layout_marginLeft="10dp"
             android:textColor="@color/black"
             android:text=""
 
@@ -87,8 +90,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:hint="Address: "
+            android:text="Address : "
             android:textSize="18sp"
+            android:textColor="@color/black"
             android:textStyle="bold"/>
         <TextView
             android:id="@+id/txvAddressDetail"
@@ -97,7 +101,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="-5dp"
+            android:layout_marginTop="10dp"
             android:layout_alignParentBottom="true"
             android:text=""
             android:textSize="16sp"
@@ -116,7 +120,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="30dp"
-            android:text="Tax Branch Name :"
+            android:text="No. Branch :"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             android:textSize="18sp"/>
 
         <EditText
@@ -127,8 +133,34 @@
             android:padding="10dp"
             android:layout_marginLeft="10dp"
             android:text=""
-            android:textSize="16dp"
-            />
+            android:enabled="false"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/txtTimeOpen"
+            android:layout_below="@+id/txtTaxBranchName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:text="Time Open :"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/txtTimeOpenDetail"
+            android:layout_toRightOf="@+id/txtTimeOpen"
+            android:layout_below="@+id/txtTaxBranchName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="16sp"/>
 
     </RelativeLayout>
 
@@ -164,6 +196,7 @@
                 android:layout_height="wrap_content"
                 android:text="SEARCH"
                 android:textSize="18dp"/>
+
 
         </RelativeLayout>
     </RelativeLayout>

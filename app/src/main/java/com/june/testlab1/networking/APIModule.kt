@@ -79,7 +79,7 @@ class APIModule {
 
             val logging = HttpLoggingInterceptor ()
             logging.apply {
-                level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BASIC else HttpLoggingInterceptor.Level.NONE
+                level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
             }
             var header = Interceptor { chain ->
                 chain.proceed(chain.request().newBuilder()
