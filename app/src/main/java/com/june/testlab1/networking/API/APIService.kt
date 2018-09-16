@@ -1,8 +1,6 @@
 package com.june.testlab1.networking.API
 
-import com.june.testlab1.networking.modelAPI.LoginRequest
-import com.june.testlab1.networking.modelAPI.Nasa
-import com.june.testlab1.networking.modelAPI.SearchResponse
+import com.june.testlab1.networking.modelAPI.*
 import io.reactivex.Observable
 import okhttp3.ResponseBody
 import retrofit2.http.Body
@@ -20,5 +18,6 @@ interface APIService {
     fun nasa (@Body nasa: Nasa): Observable<ResponseBody>
 
     @POST ("KE_SETUPS/v1/GetPosBranch")
-    fun searchbranch (@Body searchresponse: SearchResponse)
+    fun searchbranch (@Body BranchReq: BranchReq) : Observable<SearchResponse>
+
 }

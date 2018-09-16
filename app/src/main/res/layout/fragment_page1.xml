@@ -78,7 +78,7 @@
             android:enabled="false"
             android:layout_marginTop="-10dp"
             android:textColor="@color/black"
-            android:text="081-1111111"
+            android:text=""
 
             android:textSize="16sp"/>
         <TextView
@@ -99,7 +99,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="-5dp"
             android:layout_alignParentBottom="true"
-            android:text="อาคารเจ้าพระทาวเวอร์ ชั้น 1 ห้อง 109 ซอยวัดสวนพลู  บางรัก เขตบางรัก กรุงเทพมหานคร 10500"
+            android:text=""
             android:textSize="16sp"
             android:textColor="@color/black" />
 
@@ -116,15 +116,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="30dp"
-            android:text="Tax Branch Name :"/>
+            android:text="Tax Branch Name :"
+            android:textSize="18sp"/>
+
         <EditText
             android:id="@+id/txtTaxBranchNameDetail"
             android:layout_toRightOf="@id/txtTaxBranchName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="6dp"
+            android:padding="10dp"
             android:layout_marginLeft="10dp"
-            android:text="xxxxxxxx"
+            android:text=""
             android:textSize="16dp"
             />
 

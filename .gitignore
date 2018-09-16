@@ -8,3 +8,5 @@
 /build
 /captures
 .externalNativeBuild
+app/src/main/java/com/june/testlab1/networking/APIModule.kt
+app/src/main/res/layout/fragment_page1.xml
