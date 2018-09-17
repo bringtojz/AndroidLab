@@ -38,7 +38,6 @@ class ResultActivity : AppCompatActivity(), View.OnClickListener {
                 btnPage2.setBackgroundColor(Color.parseColor("#F37021"))
                 btnPage3.setBackgroundColor(Color.parseColor("#F37021"))
 
-
                 supportFragmentManager
                         .beginTransaction()
                         .addToBackStack(null)
