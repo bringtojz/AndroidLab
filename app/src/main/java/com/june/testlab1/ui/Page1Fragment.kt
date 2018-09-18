@@ -57,7 +57,7 @@ class Page1Fragment : Fragment() {
                                 //on Next 200 OK
                                 { Log.e("Status", "On Next")
                                     txtBranchNameDetail.text = it.branch!![0]!!.branchName.toString()
-                                    edtTypeBranch.setText(it.branch!![0]!!.branchType)
+                                    edtTypeBranch.setText( it.branch!![0]!!.branchType)
                                     edtTelDetail.setText (it.branch!![0]!!.taxTelephone)
                                     txvAddressDetail.text = it.branch!![0]!!.nameAddress.toString()
                                     txtTaxBranchNameDetail.setText (it.branch!![0]!!.taxBranchName)
@@ -86,11 +86,12 @@ class Page1Fragment : Fragment() {
                             //on Next 200 OK
                             { Log.e("Status", "On Next")
                                 txtBranchNameDetail.text = it.branch!![0]!!.branchName.toString()
-                                edtTypeBranch.setText(it.branch!![0]!!.branchType)
+                                edtTypeBranch.setText( it.branch!![0]!!.branchType)
                                 edtTelDetail.setText (it.branch!![0]!!.taxTelephone)
                                 txvAddressDetail.text = it.branch!![0]!!.nameAddress.toString()
                                 txtTaxBranchNameDetail.setText (it.branch!![0]!!.taxBranchName)
                                 txtTimeOpenDetail.text = it.branch!![0]!!.operatingDatetime.toString()
+
                             },
                             //on Error
                             { Log.e("Status", "On Error") },

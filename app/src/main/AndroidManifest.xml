@@ -54,7 +54,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.ResultActivity"></activity>
+        <activity android:name=".ui.ResultActivity" />
+        <activity android:name=".recycleview.Page2RecycleViewActivity"></activity>
     </application>
 
 </manifest>

@@ -30,8 +30,9 @@ class MainActivity : AppCompatActivity() {
             Log.d(TAG, "Continue With" + mAuth!!.currentUser!!.email)
             startActivity(Intent(this@MainActivity, ResultActivity::class.java))
             finish()
-
         }
+
+
         btnLoginWithEmail.setOnClickListener {
             startActivity(Intent(this@MainActivity, LoginActivity::class.java))
         }
