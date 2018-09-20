@@ -104,7 +104,7 @@ class APIModule {
 
             return retrofit.create(APIService::class.java)
         }
-        fun marvelconnect (): APIService {
+        fun starwarconnect (): APIService {
 
             val logging = HttpLoggingInterceptor ()
             logging.apply {
@@ -126,7 +126,7 @@ class APIModule {
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(MoshiConverterFactory.create())
                     .client(okHttpClient)
-                    .baseUrl("http://gateway.marvel.com")
+                    .baseUrl("https://swapi.co")
                     .build()
 
             return retrofit.create(APIService::class.java)

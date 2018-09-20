@@ -18,6 +18,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.fragment_page1.*
+import android.content.Intent
+
+
 
 
 private const val ARG_PARAM1 = "param1"
@@ -28,8 +31,6 @@ class Page1Fragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
-    private lateinit var viewAdapter: ArrayList<String>
-    private lateinit var fragment: Page1Fragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +47,11 @@ class Page1Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        edtTelDetail.setOnClickListener {
+            val intent = Intent(Intent.ACTION_CALL ,Uri.parse("tel:edtTelDetail"))
+            startActivity(intent)
+
+    }
         edtBranchID.setOnEditorActionListener() { v, actionId, event ->
             if(actionId == EditorInfo.IME_ACTION_SEARCH){
                 var body: BranchReq = BranchReq(edtBranchID.text.toString())
@@ -139,5 +145,6 @@ class Page1Fragment : Fragment() {
                 }
     }
 }
+
 
 

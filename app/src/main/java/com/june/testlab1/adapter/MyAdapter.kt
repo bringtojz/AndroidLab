@@ -9,7 +9,7 @@ import com.june.testlab1.networking.modelAPI.marvel.ResultsItem
 import kotlinx.android.synthetic.main.list_item_recycleview.view.*
 
 
-class MyAdapter (private val myDataset: List<ResultsItem>): RecyclerView.Adapter<MyAdapter.MyHolder>() {
+class MyAdapter (private val aaaa: List<com.june.testlab1.networking.modelAPI.starwar.ResultsItem>): RecyclerView.Adapter<MyAdapter.MyHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
@@ -20,13 +20,13 @@ class MyAdapter (private val myDataset: List<ResultsItem>): RecyclerView.Adapter
     }
 
     override fun getItemCount(): Int {
-        return myDataset.size
+        return aaaa.size
     }
 
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
-        holder.itemView.txtHeadTopic.text = myDataset[position].title
-        holder.itemView.txtDetail.text = myDataset[position].modified
+        holder.itemView.txtHeadTopic.text = aaaa[position].name
+        holder.itemView.txtDetail.text = aaaa[position].height
 
 
     }

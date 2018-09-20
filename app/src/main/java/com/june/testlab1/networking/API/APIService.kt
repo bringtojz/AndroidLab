@@ -3,6 +3,7 @@ package com.june.testlab1.networking.API
 import com.june.testlab1.networking.modelAPI.*
 import com.june.testlab1.networking.modelAPI.marvel.MarvelResponse
 import com.june.testlab1.networking.modelAPI.marvel.ResultsItem
+import com.june.testlab1.networking.modelAPI.starwar.StarResponse
 import io.reactivex.Observable
 import okhttp3.ResponseBody
 import retrofit2.http.Body
@@ -22,6 +23,9 @@ interface APIService {
     @POST ("KE_SETUPS/v1/GetPosBranch")
     fun searchbranch (@Body BranchReq: BranchReq) : Observable<SearchResponse>
 
-    @GET ("/v1/public/comics")
+    @GET ("v1/public/comics")
     fun marvel (@Body marvelResponse: MarvelResponse ) : Observable <ResultsItem>
+
+    @GET ("api/people/")
+    fun getstarwar () : Observable <StarResponse>
 }

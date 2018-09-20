@@ -4,18 +4,17 @@ import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import com.june.testlab1.R
 import com.june.testlab1.networking.APIModule
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import retrofit2.http.Body
+import kotlinx.android.synthetic.main.activity_result.*
+import kotlinx.android.synthetic.main.list_item_recycleview.*
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -27,11 +26,6 @@ class Page2Fragment : Fragment() {
     private var listener: OnFragmentInteractionListener? = null
 
 
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var viewAdapter: RecyclerView.Adapter<*>
-    private lateinit var viewManager: RecyclerView.LayoutManager
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -41,21 +35,22 @@ class Page2Fragment : Fragment() {
     }
 
 
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-            inflater.inflate(R.layout.fragment_page2, container, false)
+        return inflater.inflate(R.layout.fragment_page2, container, false)
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewManager = LinearLayoutManager(this)
 
 
-        APIModule.marvelconnect().marvel()
+        APIModule.starwarconnect().getstarwar()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                        {Log.e("Status" , "On Next")},
+                        {Log.e("Status" , "On Next") },
                         //On Error
                         { Log.e("Status", "On Error") },
                         //On Complete
@@ -97,5 +92,7 @@ class Page2Fragment : Fragment() {
                 }
     }
 }
+
+
 
 
