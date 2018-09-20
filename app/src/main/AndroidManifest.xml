@@ -40,11 +40,9 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.Main2Activity" />
         <activity android:name=".MainMenuActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".ResultActivity" />
         <activity
             android:name=".SlashScreen"
             android:theme="@style/SplashTheme">

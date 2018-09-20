@@ -104,6 +104,33 @@ class APIModule {
 
             return retrofit.create(APIService::class.java)
         }
+        fun marvelconnect (): APIService {
+
+            val logging = HttpLoggingInterceptor ()
+            logging.apply {
+                level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
+            }
+            var header = Interceptor { chain ->
+                chain.proceed(chain.request().newBuilder()
+                        .addHeader("Content-Type", "application/json")
+                        .build())
+            }
+            val okHttpClient = OkHttpClient.Builder()
+                    .addInterceptor(logging)
+                    .addInterceptor(header)
+                    .connectTimeout(20,TimeUnit.SECONDS)
+                    .writeTimeout(20,TimeUnit.SECONDS)
+                    .readTimeout(20,TimeUnit.SECONDS)
+                    .build()
+            val retrofit = Retrofit.Builder()
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                    .addConverterFactory(MoshiConverterFactory.create())
+                    .client(okHttpClient)
+                    .baseUrl("http://gateway.marvel.com")
+                    .build()
+
+            return retrofit.create(APIService::class.java)
+        }
         }
     }
 
