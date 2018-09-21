@@ -57,7 +57,7 @@ class Page1Fragment : Fragment() {
 
                                     txtBranchNameDetail.text = it.branch!![0]!!.branchName.toString()
                                     edtTypeBranch.setText( it.branch!![0]!!.branchType)
-                                    edtTelDetail.isEnabled = true
+                                    btnCallPhone.isEnabled = true
                                     edtTelDetail.setText (it.branch!![0]!!.taxTelephone)
                                     txvAddressDetail.text = it.branch!![0]!!.nameAddress.toString()
                                     txtTaxBranchNameDetail.setText (it.branch!![0]!!.taxBranchName)
@@ -78,7 +78,7 @@ class Page1Fragment : Fragment() {
 
         }
 
-        edtTelDetail.setOnClickListener {
+        btnCallPhone.setOnClickListener {
             callPhone(edtTelDetail.text.toString())
 
         }
@@ -157,12 +157,15 @@ class Page1Fragment : Fragment() {
         super.onSaveInstanceState(outState)
         outState?.putCharSequence("BranchName", txtBranchNameDetail.text.toString())
         outState?.putCharSequence("Address", txvAddressDetail.text.toString())
+        outState?.putCharSequence("TimeOpen", txtTimeOpenDetail.text.toString())
+
     }
 
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         super.onViewStateRestored(savedInstanceState)
         val branchName = savedInstanceState?.getString("BranchName")
         val address = savedInstanceState?.getString("Address")
+        val timeopen = savedInstanceState?.getString("TimeOpen")
 
         address.let {
             txvAddressDetail.text = it
@@ -170,6 +173,10 @@ class Page1Fragment : Fragment() {
 
        branchName.let {
            txtBranchNameDetail.text = it
+
+       }
+        timeopen.let {
+           txtTimeOpenDetail.text = it
        }
     }
 }
