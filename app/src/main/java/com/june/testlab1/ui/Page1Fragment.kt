@@ -10,17 +10,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-
 import com.june.testlab1.R
 import com.june.testlab1.networking.APIModule
 import com.june.testlab1.networking.modelAPI.BranchReq
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.fragment_page1.*
 import android.content.Intent
-
-
+import android.util.Log.e
 
 
 private const val ARG_PARAM1 = "param1"
@@ -47,11 +44,6 @@ class Page1Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        edtTelDetail.setOnClickListener {
-            val intent = Intent(Intent.ACTION_CALL ,Uri.parse("tel:edtTelDetail"))
-            startActivity(intent)
-
-    }
         edtBranchID.setOnEditorActionListener() { v, actionId, event ->
             if(actionId == EditorInfo.IME_ACTION_SEARCH){
                 var body: BranchReq = BranchReq(edtBranchID.text.toString())
@@ -62,8 +54,10 @@ class Page1Fragment : Fragment() {
                         .subscribe(
                                 //on Next 200 OK
                                 { Log.e("Status", "On Next")
+
                                     txtBranchNameDetail.text = it.branch!![0]!!.branchName.toString()
                                     edtTypeBranch.setText( it.branch!![0]!!.branchType)
+                                    edtTelDetail.isEnabled = true
                                     edtTelDetail.setText (it.branch!![0]!!.taxTelephone)
                                     txvAddressDetail.text = it.branch!![0]!!.nameAddress.toString()
                                     txtTaxBranchNameDetail.setText (it.branch!![0]!!.taxBranchName)
@@ -80,6 +74,13 @@ class Page1Fragment : Fragment() {
             } else {
                 false
             }
+
+
+        }
+
+        edtTelDetail.setOnClickListener {
+            callPhone(edtTelDetail.text.toString())
+
         }
 
         btnSearch.setOnClickListener {
@@ -93,6 +94,7 @@ class Page1Fragment : Fragment() {
                             { Log.e("Status", "On Next")
                                 txtBranchNameDetail.text = it.branch!![0]!!.branchName.toString()
                                 edtTypeBranch.setText( it.branch!![0]!!.branchType)
+                                edtTelDetail.isEnabled = true
                                 edtTelDetail.setText (it.branch!![0]!!.taxTelephone)
                                 txvAddressDetail.text = it.branch!![0]!!.nameAddress.toString()
                                 txtTaxBranchNameDetail.setText (it.branch!![0]!!.taxBranchName)
@@ -143,6 +145,32 @@ class Page1Fragment : Fragment() {
                         putString(ARG_PARAM2, param2)
                     }
                 }
+    }
+
+    private  fun callPhone(mobileNo : String){
+        val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:$mobileNo"))
+        startActivity(intent)
+    }
+
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState?.putCharSequence("BranchName", txtBranchNameDetail.text.toString())
+        outState?.putCharSequence("Address", txvAddressDetail.text.toString())
+    }
+
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
+        val branchName = savedInstanceState?.getString("BranchName")
+        val address = savedInstanceState?.getString("Address")
+
+        address.let {
+            txvAddressDetail.text = it
+        }
+
+       branchName.let {
+           txtBranchNameDetail.text = it
+       }
     }
 }
 

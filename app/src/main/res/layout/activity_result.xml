@@ -8,14 +8,11 @@
     tools:context=".ui.ResultActivity">
 
 
-    <FrameLayout
-        android:id="@+id/container"
+    <com.june.testlab1.NonSwipeViewPager
         android:layout_above="@id/bottombar"
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </FrameLayout>
-
+        android:layout_height="match_parent"/>
 
     <LinearLayout
         android:background="@color/facebook"

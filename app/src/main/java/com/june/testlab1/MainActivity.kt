@@ -1,8 +1,11 @@
 package com.june.testlab1
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
 import android.util.Log
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
@@ -20,9 +23,14 @@ class MainActivity : AppCompatActivity() {
     private val TAG: String = "MainActivity"
 
 
+    private val PERMISSIONS_REQUEST_CALL_PHONE = 101
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        checkCallPhonePermission()
+
 
         mAuth = FirebaseAuth.getInstance()
 
@@ -57,11 +65,42 @@ class MainActivity : AppCompatActivity() {
 
                 }
         )
+
+
+
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         callbackManager?.onActivityResult(requestCode, resultCode, data)
     }
+
+    private fun checkCallPhonePermission() {
+
+        //Build.VERSION.SDK_INT < 23
+        if (ContextCompat.checkSelfPermission(this.applicationContext, android.Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+        }
+        //Build.VERSION.SDK_INT >= 23
+        else {
+            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.CALL_PHONE), PERMISSIONS_REQUEST_CALL_PHONE)
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int,
+                                            permissions: Array<String>,
+                                            grantResults: IntArray) {
+
+        when (requestCode) {
+            PERMISSIONS_REQUEST_CALL_PHONE -> {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                } else {
+
+                }
+            }
+        }
+    }
+
 }
 
 
