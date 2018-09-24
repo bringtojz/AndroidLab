@@ -159,13 +159,16 @@ class Page1Fragment : Fragment() {
         outState?.putCharSequence("Address", txvAddressDetail.text.toString())
         outState?.putCharSequence("TimeOpen", txtTimeOpenDetail.text.toString())
 
+
+
     }
 
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         super.onViewStateRestored(savedInstanceState)
         val branchName = savedInstanceState?.getString("BranchName")
         val address = savedInstanceState?.getString("Address")
-        val timeopen = savedInstanceState?.getString("TimeOpen")
+        val timeOpen = savedInstanceState?.getString("TimeOpen")
+
 
         address.let {
             txvAddressDetail.text = it
@@ -175,9 +178,11 @@ class Page1Fragment : Fragment() {
            txtBranchNameDetail.text = it
 
        }
-        timeopen.let {
+        timeOpen.let {
            txtTimeOpenDetail.text = it
+
        }
+
     }
 }
 

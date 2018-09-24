@@ -9,7 +9,6 @@ import okhttp3.ResponseBody
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
-import java.util.*
 
 
 interface APIService {
@@ -28,4 +27,8 @@ interface APIService {
 
     @GET ("api/people/")
     fun getstarwar () : Observable <StarResponse>
+
+    @POST ("KE_POSDB/v1/authen_userlogin")
+    fun postlogin (@Body LoginwithAPIReq : LoginwithAPIReq) : Observable <ResponseBody>
+
 }

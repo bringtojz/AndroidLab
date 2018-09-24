@@ -13,6 +13,7 @@ import com.facebook.FacebookException
 import kotlinx.android.synthetic.main.activity_main.*
 import com.google.firebase.auth.FirebaseAuth
 import com.facebook.login.LoginResult
+import com.iamhabib.easy_preference.EasyPreference
 import com.june.testlab1.ui.ResultActivity
 
 
@@ -21,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     var callbackManager : CallbackManager? = null
     private var mAuth: FirebaseAuth? = null
     private val TAG: String = "MainActivity"
-
+    private var isLogin : Boolean = false
 
     private val PERMISSIONS_REQUEST_CALL_PHONE = 101
 
@@ -33,6 +34,14 @@ class MainActivity : AppCompatActivity() {
 
 
         mAuth = FirebaseAuth.getInstance()
+        isLogin = EasyPreference.with(this,"AUTHEN").getBoolean("isLogin",false)
+
+
+        if(isLogin){
+            startActivity(Intent(this, ResultActivity::class.java))
+            finish()
+        }
+
 
         if (mAuth!!.currentUser != null) {
             Log.d(TAG, "Continue With" + mAuth!!.currentUser!!.email)
@@ -40,6 +49,12 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
 
+
+
+
+        btnLoginWithApi.setOnClickListener {
+            startActivity(Intent(this@MainActivity, LoginWithApiActivity::class.java))
+        }
 
         btnLoginWithEmail.setOnClickListener {
             startActivity(Intent(this@MainActivity, LoginActivity::class.java))

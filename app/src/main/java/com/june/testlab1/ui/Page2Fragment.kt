@@ -11,10 +11,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.june.testlab1.R
 import com.june.testlab1.networking.APIModule
+import com.june.testlab1.networking.modelAPI.starwar.ResultsItem
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_result.*
-import kotlinx.android.synthetic.main.list_item_recycleview.*
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -24,7 +23,9 @@ class Page2Fragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
-
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var viewAdapter: RecyclerView.Adapter<*>
+    private lateinit var viewManager: RecyclerView.LayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,11 +47,19 @@ class Page2Fragment : Fragment() {
 
 
 
+
         APIModule.starwarconnect().getstarwar()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                        {Log.e("Status" , "On Next") },
+                        {
+                            viewAdapter = MyAdapter(it.results as List<ResultsItem>)
+                            recyclerView.setHasFixedSize(true)
+                            recyclerView.layoutManager = viewManager
+                            recyclerView.adapter = viewAdapter
+
+
+                        },
                         //On Error
                         { Log.e("Status", "On Error") },
                         //On Complete

@@ -1,6 +1,7 @@
 package com.june.testlab1.ui
 
 import android.support.v7.widget.RecyclerView
+import android.util.Log.e
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +21,7 @@ class MyAdapter (private val aaaa: List<com.june.testlab1.networking.modelAPI.st
     }
 
     override fun getItemCount(): Int {
+        e("Size",aaaa.size.toString())
         return aaaa.size
     }
 
