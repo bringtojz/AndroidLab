@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     android:id="@+id/btnPassData"
+    android:onClick="true"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clickable="true"
-    android:background="@color/google">
+    android:background="@color/facebook">
 
     <LinearLayout
         android:id="@+id/topLine"
@@ -35,13 +36,15 @@
                 android:id="@+id/txtHeadTopic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="xxxxx"/>
+                android:text="xxxxx"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:id="@+id/txtDetail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="xxxxx"/>
+                android:text="xxxxx"
+                android:textColor="@color/white"/>
 
         </LinearLayout>
 
@@ -51,7 +54,8 @@
         android:layout_marginLeft="20dp"
         android:layout_below="@id/topLine"
         android:layout_width="match_parent"
-        android:layout_height="0.5dp">
+        android:layout_height="0.5dp"
+        android:background="@color/black">
 
     </LinearLayout>
 

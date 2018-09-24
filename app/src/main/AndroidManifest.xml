@@ -54,7 +54,8 @@
         </activity>
         <activity android:name=".ui.ResultActivity" />
         <activity android:name=".recycleview.Page2RecycleViewActivity" />
-        <activity android:name=".LoginWithApiActivity"></activity>
+        <activity android:name=".LoginWithApiActivity" />
+        <activity android:name=".ui.Page2_1Activity"></activity>
     </application>
 
 </manifest>
