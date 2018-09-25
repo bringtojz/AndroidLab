@@ -24,6 +24,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -53,6 +54,9 @@ dependencies {
     implementation "org.jetbrains.anko:anko-commons:$anko_version"
     implementation 'com.github.dimorinny:floating-text-button:0.0.4'
     implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
+
+    //add MultiDex
+    implementation 'com.android.support:multidex:1.0.3'
 
     //Shared Preferences
     implementation 'com.iamhabib:easy-preference:1.0.1'

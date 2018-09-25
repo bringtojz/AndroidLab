@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TestLab1</string>
+    <string name="app_name">KE Search</string>
     <string name="facebook_app_id">307642556668002</string>
     <string name="fb_login_protocol_scheme">fb307642556668002</string>
 
