@@ -21,12 +21,7 @@ import kotlinx.android.synthetic.main.fragment_page2.*
 import android.support.design.widget.TabLayout
 import android.widget.TextView
 import android.R.attr.fragment
-
-
-
-
-
-
+import com.june.testlab1.MapsActivity
 
 
 private const val ARG_PARAM1 = "param1"
@@ -63,7 +58,7 @@ class Page2Fragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         btnPassTo21.setOnClickListener {
-            var intent:Intent = Intent(activity,Page2_1Activity::class.java)
+            var intent:Intent = Intent(activity,MapsActivity::class.java)
             startActivity(intent)
         }
 
