@@ -12,9 +12,15 @@ class SlashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_slash_screen)
-        val intent = Intent(this@SlashScreen, MainActivity::class.java)
-        startActivity(intent)
-        finish()
-    }
 
+
+
+        Timer().schedule( object : TimerTask(){
+            override fun run() {
+                val intent = Intent(this@SlashScreen, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+        }, 1200L)
+    }
 }

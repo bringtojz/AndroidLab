@@ -25,6 +25,7 @@
             android:layout_alignParentLeft="true"
             android:hint="Branch" />
 
+
         <EditText
             android:id="@+id/edtTypeBranch"
             android:layout_toRightOf="@+id/edtBranchID"

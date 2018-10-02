@@ -17,31 +17,42 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_page1.*
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.location.Location
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
 import android.util.Log.e
+import com.google.android.gms.location.*
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-class Page1Fragment : Fragment(), OnMapReadyCallback {
+
+class Page1Fragment : Fragment(), OnMapReadyCallback , GoogleMap.OnMarkerClickListener {
+
+    override fun onMarkerClick(p0: Marker?) = false
 
     private lateinit var mMap: GoogleMap
-
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        // Add a marker in Sydney and move the camera
         val sydney = LatLng(-34.0, 151.0)
         mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+
+
     }
+
 
     private var param1: String? = null
     private var param2: String? = null
@@ -49,6 +60,7 @@ class Page1Fragment : Fragment(), OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this.requireActivity())
 
         }
 
@@ -65,6 +77,8 @@ class Page1Fragment : Fragment(), OnMapReadyCallback {
         val mapFragment = childFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+
 
         edtBranchID.setOnEditorActionListener() { v, actionId, event ->
             if(actionId == EditorInfo.IME_ACTION_SEARCH){
@@ -180,8 +194,6 @@ class Page1Fragment : Fragment(), OnMapReadyCallback {
         outState?.putCharSequence("BranchName", txtBranchNameDetail.text.toString())
         outState?.putCharSequence("Address", txvAddressDetail.text.toString())
         outState?.putCharSequence("TimeOpen", txtTimeOpenDetail.text.toString())
-
-
 
     }
 

@@ -6,22 +6,24 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.design.R.id.container
 import android.support.v4.app.Fragment
+import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
+import com.june.testlab1.MapsActivity
 import com.june.testlab1.R
 import com.june.testlab1.networking.APIModule
 import com.june.testlab1.networking.modelAPI.starwar.ResultsItem
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_page2.*
-import android.support.design.widget.TabLayout
-import android.widget.TextView
-import android.R.attr.fragment
-import com.june.testlab1.MapsActivity
+import kotlinx.android.synthetic.main.fragment_page2.view.*
 
 
 private const val ARG_PARAM1 = "param1"
@@ -50,7 +52,8 @@ class Page2Fragment : Fragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_page2, container, false)
+         return inflater.inflate (R.layout.fragment_page2, container, false)
+
     }
 
 
@@ -58,9 +61,10 @@ class Page2Fragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         btnPassTo21.setOnClickListener {
-            var intent:Intent = Intent(activity,MapsActivity::class.java)
+            var intent:Intent = Intent(activity, Page2_1Activity::class.java)
             startActivity(intent)
         }
+
 
 
         APIModule.starwarconnect().getstarwar()
@@ -72,7 +76,7 @@ class Page2Fragment : Fragment() {
                                 recyclerView.setHasFixedSize(true)
                                 recyclerView.layoutManager = viewManager
                                 recyclerView.adapter = viewAdapter
-                                val nameView = view.findViewById(R.id.recycleview) as TextView
+                                val nameView = view.findViewById(R.id.recycleview2_1) as TextView
 
                         },
                         //On Error
