@@ -58,7 +58,6 @@ dependencies {
 
 
 
-
     //Service Location
     implementation 'com.google.android.gms:play-services-location:15.0.1'
     //add MultiDex

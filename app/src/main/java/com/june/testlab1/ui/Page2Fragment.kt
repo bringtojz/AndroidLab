@@ -6,24 +6,19 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.design.R.id.container
 import android.support.v4.app.Fragment
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
-import com.june.testlab1.MapsActivity
 import com.june.testlab1.R
 import com.june.testlab1.networking.APIModule
 import com.june.testlab1.networking.modelAPI.starwar.ResultsItem
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_page2.*
-import kotlinx.android.synthetic.main.fragment_page2.view.*
+
 
 
 private const val ARG_PARAM1 = "param1"
@@ -59,6 +54,12 @@ class Page2Fragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        btnCheckPrice.setOnClickListener {
+            var intent:Intent = Intent(activity, Page2_PriceActivity::class.java)
+            startActivity(intent)
+        }
+
 
         btnPassTo21.setOnClickListener {
             var intent:Intent = Intent(activity, Page2_1Activity::class.java)
