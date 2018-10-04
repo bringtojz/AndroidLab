@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Ma.AddDateMaActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="58dp">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:elevation="0dp">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/appbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:title="Add Date Maintenance"
+                app:titleTextColor="@color/white"
+                android:background="@color/orange"
+                app:navigationIcon="@drawable/ic_arrow_back_black_24dp"/>
+        </android.support.design.widget.AppBarLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/txtBranchID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Shop"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+        <EditText
+            android:id="@+id/edtBranchID"
+            android:layout_below="@+id/txtBranchID"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="4"
+            android:padding="5dp"
+            android:gravity="center"
+            android:hint="ใส่รหัส Shop (xxxx)"
+            android:background="@drawable/input_frame"/>
+
+        <TextView
+            android:id="@+id/txtDateInto"
+            android:layout_below="@+id/edtBranchID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Date"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+        <EditText
+            android:id="@+id/edtDateInto"
+            android:layout_below="@+id/txtDateInto"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:gravity="center"
+            android:hint="DD/MM/YYYY"
+            android:background="@drawable/input_frame"/>
+
+
+        <ru.dimorinny.floatingtextbutton.FloatingTextButton
+            android:id="@+id/btnUpload"
+            android:layout_below="@id/edtDateInto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:floating_background_color="@color/orange"
+            app:floating_left_icon="@drawable/ic_file_upload_white_24dp"
+            app:floating_title="Upload"
+            app:floating_title_color="@android:color/white" />
+
+        <com.dd.processbutton.iml.ActionProcessButton
+            android:layout_alignParentBottom="true"
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Save"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            custom:pb_colorComplete="@color/green_complete"
+            custom:pb_colorNormal="@color/blue_normal"
+            custom:pb_colorPressed="@color/blue_pressed"
+            custom:pb_colorProgress="@color/red_error"
+            custom:pb_textComplete="Save Complete"
+            custom:pb_textProgress="Uploading" />
+
+
+    </RelativeLayout>
+</LinearLayout>

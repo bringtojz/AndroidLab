@@ -18,7 +18,6 @@ import android.R.id.edit
 import android.content.SharedPreferences
 import android.content.Context.MODE_PRIVATE
 import android.util.Log
-import com.google.android.gms.flags.impl.SharedPreferencesFactory.getSharedPreferences
 import com.iamhabib.easy_preference.EasyPreference
 
 

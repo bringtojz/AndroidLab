@@ -10,14 +10,6 @@
             android:layout_width="match_parent"
             android:layout_height="58dp">
 
-        <!--<ImageView-->
-            <!--android:id="@+id/btnBack"-->
-            <!--android:layout_width="30dp"-->
-            <!--android:layout_height="56dp"-->
-            <!--android:src="@drawable/ic_arrow_back_black_24dp"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:background="@color/orange"/>-->
-
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,12 +17,12 @@
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/appbar"
-            android:paddingLeft="30dp"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:title="Page2"
-            android:background="@color/orange"/>
-            <!--app:navigationIcon="@drawable/shr_menu"-->
+            app:titleTextColor="@color/white"
+            android:background="@color/orange"
+            app:navigationIcon="@drawable/ic_arrow_back_black_24dp"/>
         </android.support.design.widget.AppBarLayout>
 
     </LinearLayout>
@@ -48,12 +40,12 @@
             android:layout_height="wrap_content"
             android:text="Check Price"/>
         <Button
-            android:id="@+id/btnPromo"
+            android:id="@+id/btnMa"
             android:layout_below="@+id/btnCheckPrice"
             android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Menu 2"/>
+            android:text="Maintenance"/>
 
         <RelativeLayout
             android:layout_alignParentBottom="true"

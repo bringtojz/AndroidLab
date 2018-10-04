@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.support.design.R.id.container
 import android.support.v4.app.Fragment
 import android.support.v7.widget.RecyclerView
 import android.util.Log
@@ -15,6 +14,7 @@ import android.widget.TextView
 import com.june.testlab1.R
 import com.june.testlab1.networking.APIModule
 import com.june.testlab1.networking.modelAPI.starwar.ResultsItem
+import com.june.testlab1.ui.Ma.MaActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_page2.*
@@ -54,6 +54,12 @@ class Page2Fragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        btnMa.setOnClickListener {
+            var intent:Intent = Intent(activity, MaActivity::class.java)
+            startActivity(intent)
+        }
+
 
         btnCheckPrice.setOnClickListener {
             var intent:Intent = Intent(activity, Page2_PriceActivity::class.java)

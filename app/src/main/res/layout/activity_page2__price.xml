@@ -4,7 +4,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
@@ -19,13 +18,13 @@
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/appbar"
-                android:paddingLeft="30dp"
+                android:paddingLeft="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:title="Price"
                 app:titleTextColor="@color/white"
-                android:background="@color/orange"/>
-            <!--app:navigationIcon="@drawable/shr_menu"-->
+                android:background="@color/orange"
+                app:navigationIcon="@drawable/ic_arrow_back_black_24dp"/>
         </android.support.design.widget.AppBarLayout>
 
     </LinearLayout>
