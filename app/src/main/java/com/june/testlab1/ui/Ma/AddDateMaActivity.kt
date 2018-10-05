@@ -54,8 +54,8 @@ class AddDateMaActivity : AppCompatActivity() {
         builder.setTitle("Select your picture")
 
 // add a list
-        val animals = arrayOf("1. Take a picture", "2. Select from your galley")
-        builder.setItems(animals) { _, which ->
+        val uploadimg = arrayOf("1. Take a picture", "2. Select from your galley")
+        builder.setItems(uploadimg) { _, which ->
             when (which) {
                 0 -> {
                     //Permission -> CAMERA

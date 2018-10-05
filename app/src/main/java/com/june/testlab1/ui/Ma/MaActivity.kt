@@ -22,7 +22,6 @@ class MaActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
         val calendarView = findViewById<CalendarView>(R.id.calendarView)
         calendarView?.setOnDateChangeListener { view, year, month, dayOfMonth ->
 
