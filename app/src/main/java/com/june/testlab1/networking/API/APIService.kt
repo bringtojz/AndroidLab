@@ -1,6 +1,8 @@
 package com.june.testlab1.networking.API
 
 import com.june.testlab1.networking.modelAPI.*
+import com.june.testlab1.networking.modelAPI.checkprice.CheckPriceReq
+import com.june.testlab1.networking.modelAPI.checkprice.CheckPriceResponse
 import com.june.testlab1.networking.modelAPI.marvel.MarvelResponse
 import com.june.testlab1.networking.modelAPI.marvel.ResultsItem
 import com.june.testlab1.networking.modelAPI.starwar.StarResponse
@@ -31,4 +33,6 @@ interface APIService {
     @POST ("KE_POSDB/v1/authen_userlogin")
     fun postlogin (@Body LoginwithAPIReq : LoginwithAPIReq) : Observable <ResponseBody>
 
+    @POST ("KE_SETUPS/v1/updatePosPriceCheck")
+    fun checkprice (@Body CheckPriceReq : CheckPriceReq) : Observable <CheckPriceResponse>
 }

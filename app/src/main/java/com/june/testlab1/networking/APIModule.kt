@@ -160,6 +160,38 @@ class APIModule {
 
             return retrofit.create(APIService::class.java)
         }
+
+        fun checkpriceconnect (): APIService {
+
+            val logging = HttpLoggingInterceptor ()
+            logging.apply {
+                level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
+            }
+            var header = Interceptor { chain ->
+                chain.proceed(chain.request().newBuilder()
+                        .addHeader("Content-Type", "application/json")
+                        .addHeader("app_id", "SETUP")
+                        .addHeader("app_key", "85FDB4A6-B919-439E-9F56-195D51C5A2F3")
+                        .build())
+            }
+            val okHttpClient = OkHttpClient.Builder()
+                    .addInterceptor(logging)
+                    .addInterceptor(header)
+                    .connectTimeout(20,TimeUnit.SECONDS)
+                    .writeTimeout(20,TimeUnit.SECONDS)
+                    .readTimeout(20,TimeUnit.SECONDS)
+                    .build()
+            val retrofit = Retrofit.Builder()
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                    .addConverterFactory(MoshiConverterFactory.create())
+                    .client(okHttpClient)
+                    .baseUrl("http://58.137.103.187:8081")
+                    .build()
+
+            return retrofit.create(APIService::class.java)
+        }
+
+
         }
     }
 

@@ -35,7 +35,7 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/edtPostIdSend"
+            android:id="@+id/edtBranchID"
             android:inputType="textCapCharacters"
             android:maxLength="5"
             android:textAllCaps="true"
@@ -45,12 +45,12 @@
             android:gravity="center"
             android:imeOptions="actionSearch"
             android:layout_alignParentLeft="true"
-            android:hint="ต้นทาง" />
+            android:hint="ต้นทาง (Shop)" />
 
 
         <EditText
             android:id="@+id/edtPostIdReceiver"
-            android:layout_toRightOf="@+id/edtPostIdSend"
+            android:layout_toRightOf="@+id/edtBranchID"
             android:layout_width="160dp"
             android:maxLength="5"
             android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
 
         <TextView
             android:id="@+id/txtService"
-            android:layout_below="@+id/edtPostIdSend"
+            android:layout_below="@+id/edtBranchID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -76,7 +76,7 @@
             android:id="@+id/txtServiceDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/edtPostIdSend"
+            android:layout_below="@+id/edtBranchID"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="3dp"
@@ -444,7 +444,7 @@
         android:layout_weight="1">
 
         <RelativeLayout
-            android:id="@+id/btnSearch"
+            android:id="@+id/btnCheckPrice"
             android:foreground="?selectableItemBackground"
             android:layout_alignParentBottom="true"
             android:padding="10dp"
@@ -466,7 +466,7 @@
                 android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SEARCH"
+                android:text="Check Price"
                 android:textSize="18dp"/>
 
 
