@@ -2,6 +2,7 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -37,13 +38,12 @@
         <EditText
             android:id="@+id/edtBranchID"
             android:inputType="textCapCharacters"
-            android:maxLength="5"
+            android:maxLength="4"
             android:textAllCaps="true"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:gravity="center"
-            android:imeOptions="actionSearch"
             android:layout_alignParentLeft="true"
             android:hint="ต้นทาง (Shop)" />
 
@@ -51,10 +51,12 @@
         <EditText
             android:id="@+id/edtPostIdReceiver"
             android:layout_toRightOf="@+id/edtBranchID"
+            android:inputType="number"
             android:layout_width="160dp"
             android:maxLength="5"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:imeOptions="actionSearch"
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:textColor="@color/black"
@@ -82,7 +84,34 @@
             android:layout_marginTop="3dp"
             android:layout_toRightOf="@id/txtService"
             android:textColor="@color/black"
-            android:text="ND"
+            android:hint="xx"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:id="@+id/txtRoute"
+            android:layout_below="@+id/edtPostIdReceiver"
+            android:layout_toRightOf="@id/txtServiceDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginBottom="10dp"
+            android:text="Route : "
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/edtRouteDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edtPostIdReceiver"
+            android:layout_toRightOf="@id/txtRoute"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="-10dp"
+            android:enabled="false"
+            android:hint="xx"
+            android:textColor="@color/black"
             android:textSize="16sp" />
 
         <TextView
@@ -105,10 +134,10 @@
             android:layout_below="@id/txtServiceDetail"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/txtBoxSizeEnvelop"
-            android:clickable="true"
+            android:maxLength="5"
             android:enabled="false"
             android:layout_marginTop="-15dp"
-            android:text="35"
+            android:hint="xx.xx"
             android:textColor="@color/black"
             android:textSize="16sp" />
 
@@ -131,7 +160,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="-10dp"
-            android:text="35"
+            android:maxLength="5"
+            android:hint="xx.xx"
             android:textSize="16sp"
             android:enabled="false"
             android:textColor="@color/black" />
@@ -155,7 +185,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="-10dp"
-            android:text="35"
+            android:maxLength="5"
+            android:hint="xx.xx"
             android:textSize="16sp"
             android:enabled="false"
             android:textColor="@color/black" />
@@ -180,7 +211,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="-10dp"
-            android:text="35"
+            android:maxLength="5"
+            android:hint="xx.xx"
             android:textSize="16sp"
             android:enabled="false"
             android:textColor="@color/black" />
@@ -205,7 +237,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="-5dp"
-            android:text="35"
+            android:maxLength="5"
+            android:hint="xx.xx"
             android:textSize="16sp"
             android:enabled="false"
             android:textColor="@color/black" />
@@ -231,8 +264,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="-5dp"
-            android:text="35"
+            android:hint="xx.xx"
             android:textSize="16sp"
+            android:maxLength="5"
             android:enabled="false"
             android:textColor="@color/black" />
 
@@ -255,7 +289,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="35"
+            android:maxLength="6"
+            android:hint="xx.xx"
             android:textSize="16sp"
             android:enabled="false"
             android:textColor="@color/black" />
@@ -267,7 +302,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="35dp"
+            android:layout_marginStart="24dp"
             android:text="Box  ( M ) : "
             android:textSize="18sp"
             android:textColor="@color/black"
@@ -280,7 +315,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="35"
+            android:maxLength="6"
+            android:hint="xx.xx"
             android:textSize="16sp"
             android:enabled="false"
             android:textColor="@color/black" />
@@ -303,8 +339,9 @@
             android:layout_toRightOf="@id/txtBoxSPlus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="35"
+            android:layout_marginStart="10dp"
+            android:maxLength="6"
+            android:hint="xx.xx"
             android:textSize="16sp"
             android:enabled="false"
             android:textColor="@color/black" />
@@ -316,7 +353,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="35dp"
+            android:layout_marginStart="24dp"
             android:text="Box  ( L ) : "
             android:textSize="18sp"
             android:textColor="@color/black"
@@ -329,7 +366,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="35"
+            android:maxLength="6"
+            android:hint="xx.xx"
             android:textSize="16sp"
             android:enabled="false"
             android:textColor="@color/black" />
@@ -347,13 +385,14 @@
             android:textStyle="bold"/>
 
         <EditText
-            android:id="@+id/edtBoxXLPlusDetail"
+            android:id="@+id/edtBoxXLDetail"
             android:layout_below="@+id/txtBoxMPlus"
             android:layout_toRightOf="@id/txtBoxXLPlus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="35"
+            android:maxLength="6"
+            android:hint="xx.xx"
             android:textSize="16sp"
             android:enabled="false"
             android:textColor="@color/black" />
@@ -365,7 +404,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="35dp"
+            android:layout_marginStart="24dp"
             android:text="Box  ( XXL ) : "
             android:textSize="18sp"
             android:textColor="@color/black"
@@ -378,7 +417,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="35"
+            android:maxLength="6"
+            android:hint="xx.xx"
             android:textSize="16sp"
             android:enabled="false"
             android:textColor="@color/black" />
@@ -388,53 +428,54 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!--<TextView-->
-            <!--android:id="@+id/txtTaxBranchName"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:layout_marginLeft="20dp"-->
-            <!--android:text="No. Branch :"-->
-            <!--android:textColor="@color/black"-->
-            <!--android:textStyle="bold"-->
-            <!--android:textSize="18sp"/>-->
+        <TextView
+            android:id="@+id/txtPriceZone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:text="โซนราคา :"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
 
-        <!--<EditText-->
-            <!--android:id="@+id/txtTaxBranchNameDetail"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_toRightOf="@id/txtTaxBranchName"-->
-            <!--android:padding="10dp"-->
-            <!--android:layout_marginLeft="10dp"-->
-            <!--android:text=""-->
-            <!--android:enabled="false"-->
-            <!--android:textColor="@color/black"-->
-            <!--android:textSize="16dp" />-->
+        <EditText
+            android:id="@+id/edtPriceZoneDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/txtPriceZone"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp"
+            android:hint="xx"
+            android:enabled="false"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
 
-        <!--<TextView-->
-            <!--android:id="@+id/txtTimeOpen"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_toRightOf="@+id/txtTaxBranchNameDetail"-->
-            <!--android:layout_marginBottom="10dp"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:layout_marginLeft="45dp"-->
-            <!--android:text="Time Open :"-->
-            <!--android:textColor="@color/black"-->
-            <!--android:textStyle="bold"-->
-            <!--android:textSize="18sp"/>-->
+        <TextView
+            android:id="@+id/txtZoneSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_toLeftOf="@id/txtZoneSendDetail"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="45dp"
+            android:text="Zone ต้นทาง :"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
 
-        <!--<EditText-->
-            <!--android:id="@+id/txtTimeOpenDetail"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_toRightOf="@+id/txtTimeOpen"-->
-
-            <!--android:layout_marginLeft="10dp"-->
-            <!--android:enabled="false"-->
-            <!--android:text=""-->
-            <!--android:textColor="@color/black"-->
-            <!--android:textSize="16sp"/>-->
+        <EditText
+            android:id="@+id/txtZoneSendDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="55dp"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentRight="true"
+            android:enabled="false"
+            android:hint="xx"
+            android:textColor="@color/black"
+            android:textSize="16sp"/>
 
     </RelativeLayout>
 

@@ -24,6 +24,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import com.livinglifetechway.k4kotlin.toast
 
 
 private const val ARG_PARAM1 = "param1"
@@ -84,7 +85,6 @@ class Page1Fragment : Fragment(), OnMapReadyCallback , GoogleMap.OnMarkerClickLi
                         .subscribe(
                                 //on Next 200 OK
                                 { Log.e("Status", "On Next")
-
                                     txtBranchNameDetail.text = it.branch!![0]!!.branchName.toString()
                                     edtTypeBranch.setText( it.branch!![0]!!.branchType)
                                     btnCallPhone.isEnabled = true
@@ -92,10 +92,11 @@ class Page1Fragment : Fragment(), OnMapReadyCallback , GoogleMap.OnMarkerClickLi
                                     txvAddressDetail.text = it.branch!![0]!!.nameAddress.toString()
                                     txtTaxBranchNameDetail.setText (it.branch!![0]!!.taxBranchName)
                                     txtTimeOpenDetail.text = it.branch!![0]!!.operatingDatetime.toString()
-
                                 },
                                 //on Error
-                                { Log.e("Status", "On Error") },
+                                { Log.e("Status", "On Error")
+                                toast("ใส่ชื่อ branch ผิด.")
+                                },
                                 //On Complete
                                 { Log.e("Status", "On Complete") }
                         )
@@ -132,7 +133,9 @@ class Page1Fragment : Fragment(), OnMapReadyCallback , GoogleMap.OnMarkerClickLi
 
                             },
                             //on Error
-                            { Log.e("Status", "On Error") },
+                            { Log.e("Status", "On Error")
+                                toast("ใส่ชื่อ branch ผิด.")
+                            },
                             //On Complete
                             { Log.e("Status", "On Complete") }
                     )

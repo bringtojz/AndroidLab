@@ -25,7 +25,7 @@
                 android:layout_height="?attr/actionBarSize"
                 app:title="Add Date Maintenance"
                 app:titleTextColor="@color/white"
-                android:background="@color/orange"
+                android:background="@color/darkgray"
                 app:navigationIcon="@drawable/ic_arrow_back_black_24dp"/>
         </android.support.design.widget.AppBarLayout>
     </LinearLayout>
@@ -33,28 +33,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-
-        <!--<TextView-->
-            <!--android:id="@+id/txtBranchID"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginLeft="10dp"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:text="Shop"-->
-            <!--android:textSize="18dp"-->
-            <!--android:textStyle="bold" />-->
-        <!--<EditText-->
-            <!--android:id="@+id/edtBranchID"-->
-            <!--android:layout_below="@+id/txtBranchID"-->
-            <!--android:layout_margin="10dp"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:maxLength="4"-->
-            <!--android:padding="5dp"-->
-            <!--android:gravity="center"-->
-            <!--android:hint="ใส่รหัส Shop (xxxx)"-->
-            <!--android:background="@drawable/input_frame"/>-->
 
         <com.github.florent37.materialtextfield.MaterialTextField
             android:layout_width="match_parent"
@@ -101,28 +79,6 @@
 
         </com.github.florent37.materialtextfield.MaterialTextField>
 
-        <!--<TextView-->
-            <!--android:id="@+id/txtDateInto"-->
-            <!--android:layout_below="@+id/edtBranchID"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginLeft="10dp"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:text="Date"-->
-            <!--android:textSize="18dp"-->
-            <!--android:textStyle="bold" />-->
-        <!--<EditText-->
-            <!--android:id="@+id/edtDateInto"-->
-            <!--android:layout_below="@+id/txtDateInto"-->
-            <!--android:layout_margin="10dp"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:padding="5dp"-->
-            <!--android:gravity="center"-->
-            <!--android:hint="DD/MM/YYYY"-->
-            <!--android:background="@drawable/input_frame"/>-->
-
-
         <ru.dimorinny.floatingtextbutton.FloatingTextButton
             android:id="@+id/btnUpload"
             android:layout_width="wrap_content"
@@ -148,6 +104,21 @@
             custom:pb_colorProgress="@color/red_error"
             custom:pb_textComplete="Save Complete"
             custom:pb_textProgress="Uploading" />
+
+
+        <ImageView
+            android:id="@+id/photoImageView"
+            android:layout_below="@+id/btnUpload"
+            android:layout_centerHorizontal="true"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="View for displaying image"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:srcCompat="@android:color/darker_gray"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="16dp"
+            app:layout_constraintHorizontal_bias="0.513" />
 
 
     </RelativeLayout>

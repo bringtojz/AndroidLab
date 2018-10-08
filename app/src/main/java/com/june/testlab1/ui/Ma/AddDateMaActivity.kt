@@ -1,5 +1,7 @@
 package com.june.testlab1.ui.Ma
 
+import android.Manifest
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.support.v7.app.AppCompatActivity
@@ -12,10 +14,25 @@ import android.widget.Toast
 import com.june.testlab1.R
 import kotlinx.android.synthetic.main.activity_add_date_ma.*
 import android.content.DialogInterface
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.os.Environment
+import android.provider.MediaStore
+import android.support.design.widget.Snackbar
+import android.support.v4.content.FileProvider
 import android.support.v7.app.AlertDialog
+import android.webkit.PermissionRequest
+import com.june.testlab1.R.id.menu1
+import java.io.File
+import java.io.IOException
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class AddDateMaActivity : AppCompatActivity() {
+
+    val CAMERA_REQUEST_CODE = 0
+    lateinit var imageFilePath: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +44,9 @@ class AddDateMaActivity : AppCompatActivity() {
         btnUpload.setOnClickListener {
             showAlertDialog()
         }
+
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater = menuInflater
@@ -59,8 +78,8 @@ class AddDateMaActivity : AppCompatActivity() {
             when (which) {
                 0 -> {
                     //Permission -> CAMERA
-
                     Log.e("Image","Camera")
+
                 }
                 1-> {
                     //Permission -> EXTERNAL STORAGE
