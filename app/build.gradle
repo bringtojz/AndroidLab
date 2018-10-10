@@ -54,12 +54,19 @@ dependencies {
     implementation 'com.github.dimorinny:floating-text-button:0.0.4'
     implementation 'com.facebook.android:facebook-android-sdk:4.37.0'
 
-    //Firebase
+    //FireBase
     implementation 'com.google.firebase:firebase-auth:16.0.4'
     implementation 'com.google.firebase:firebase-core:16.0.4'
+    implementation 'com.google.firebase:firebase-database:16.0.3'
+    implementation 'com.google.firebase:firebase-firestore:17.1.1'
+    implementation 'com.google.firebase:firebase-storage:16.0.3'
 
     //TextFiled
     implementation 'com.github.florent37:materialtextfield:1.0.7'
+
+    //Picture
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
 
     //Button
     implementation 'com.github.dmytrodanylyk.android-process-button:library:1.0.4'
@@ -83,7 +90,6 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
     implementation "io.reactivex.rxjava2:rxkotlin:$rxkotlin_version"
     implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
-
 
 
 }

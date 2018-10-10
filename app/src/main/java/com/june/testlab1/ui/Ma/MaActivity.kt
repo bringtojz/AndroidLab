@@ -10,6 +10,7 @@ import com.june.testlab1.R
 import com.livinglifetechway.quickpermissions.annotations.WithPermissions
 import kotlinx.android.synthetic.main.activity_ma.*
 
+
 class MaActivity : AppCompatActivity() {
 
 
@@ -20,6 +21,10 @@ class MaActivity : AppCompatActivity() {
         btnAddDateMa.setOnClickListener {
             var intent: Intent = Intent(this@MaActivity, AddDateMaActivity::class.java)
             startActivity(intent)
+        }
+
+        btnBack.setOnClickListener {
+            finish()
         }
 
         val calendarView = findViewById<CalendarView>(R.id.calendarView)

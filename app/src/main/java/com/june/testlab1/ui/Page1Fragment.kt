@@ -16,7 +16,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_page1.*
 import android.content.Intent
-import com.google.android.gms.location.*
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -24,6 +25,8 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import com.june.testlab1.R.id.btnBack
+
 import com.livinglifetechway.k4kotlin.toast
 
 
@@ -31,7 +34,7 @@ private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 
-class Page1Fragment : Fragment(), OnMapReadyCallback , GoogleMap.OnMarkerClickListener {
+class Page1Fragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
     override fun onMarkerClick(p0: Marker?) = false
 
@@ -45,7 +48,6 @@ class Page1Fragment : Fragment(), OnMapReadyCallback , GoogleMap.OnMarkerClickLi
         mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
 
-
     }
 
 
@@ -57,7 +59,7 @@ class Page1Fragment : Fragment(), OnMapReadyCallback , GoogleMap.OnMarkerClickLi
         super.onCreate(savedInstanceState)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this.requireActivity())
 
-        }
+    }
 
 
 
@@ -68,12 +70,6 @@ class Page1Fragment : Fragment(), OnMapReadyCallback , GoogleMap.OnMarkerClickLi
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val mapFragment = childFragmentManager
-                .findFragmentById(R.id.map) as SupportMapFragment
-        mapFragment.getMapAsync(this)
-
-
 
         edtBranchID.setOnEditorActionListener() { v, actionId, event ->
             if(actionId == EditorInfo.IME_ACTION_SEARCH){
@@ -95,7 +91,7 @@ class Page1Fragment : Fragment(), OnMapReadyCallback , GoogleMap.OnMarkerClickLi
                                 },
                                 //on Error
                                 { Log.e("Status", "On Error")
-                                toast("ใส่ชื่อ branch ผิด.")
+                                    toast("ใส่ชื่อ branch ผิด.")
                                 },
                                 //On Complete
                                 { Log.e("Status", "On Complete") }
@@ -133,9 +129,7 @@ class Page1Fragment : Fragment(), OnMapReadyCallback , GoogleMap.OnMarkerClickLi
 
                             },
                             //on Error
-                            { Log.e("Status", "On Error")
-                                toast("ใส่ชื่อ branch ผิด.")
-                            },
+                            { Log.e("Status", "On Error") },
                             //On Complete
                             { Log.e("Status", "On Complete") }
                     )
@@ -205,14 +199,14 @@ class Page1Fragment : Fragment(), OnMapReadyCallback , GoogleMap.OnMarkerClickLi
             txvAddressDetail.text = it
         }
 
-       branchName.let {
-           txtBranchNameDetail.text = it
+        branchName.let {
+            txtBranchNameDetail.text = it
 
-       }
+        }
         timeOpen.let {
-           txtTimeOpenDetail.text = it
+            txtTimeOpenDetail.text = it
 
-       }
+        }
 
     }
 }

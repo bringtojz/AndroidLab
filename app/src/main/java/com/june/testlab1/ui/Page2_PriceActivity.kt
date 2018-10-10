@@ -15,11 +15,16 @@ import org.jetbrains.anko.toast
 
 class Page2_PriceActivity : AppCompatActivity() {
 
+    val Showerror = "รหัสไปรษณีย์ปลายทางผิด"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_page2__price)
 
 
+
+        btnBack.setOnClickListener {
+            finish()
+        }
 
         edtPostIdReceiver.setOnEditorActionListener() { v, actionId, event ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
@@ -53,7 +58,7 @@ class Page2_PriceActivity : AppCompatActivity() {
                                 },
                                 //on Error
                                 { Log.e("Status", "On Error")
-                                    toast("พิมเลขไปรษณีย์ผิด")
+                                    edtBranchID.error = Showerror
                                     txtServiceDetail.text = ""
                                     edtRouteDetail.setText("")
                                     edtBoxSizeEnvelopDetail.setText("")
@@ -114,7 +119,7 @@ class Page2_PriceActivity : AppCompatActivity() {
                             },
                             //on Error
                             { Log.e("Status", "On Error")
-                                toast("พิมเลขไปรษณีย์ผิด")
+                                edtBranchID.error = Showerror
                                 txtServiceDetail.text = ""
                                 edtRouteDetail.setText("")
                                 edtBoxSizeEnvelopDetail.setText("")
