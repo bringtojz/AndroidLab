@@ -2,6 +2,7 @@ package com.june.testlab1.ui.Ma
 
 import android.Manifest
 import android.app.Activity
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.net.Uri
 import android.support.v7.app.AppCompatActivity
@@ -25,6 +26,8 @@ import android.support.v4.content.ContextCompat
 import android.support.v4.content.FileProvider
 import android.support.v7.app.AlertDialog
 import android.webkit.PermissionRequest
+import android.widget.Button
+import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -60,6 +63,27 @@ class AddDateMaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_date_ma)
 
+        //DatePicker
+        val textView: TextView = findViewById(R.id.edtDateInto)
+        textView.text = SimpleDateFormat("dd.MM.yyyy").format(System.currentTimeMillis())
+        var cal = Calendar.getInstance()
+        val dateSetListener = DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+            cal.set(Calendar.YEAR, year)
+            cal.set(Calendar.MONTH, monthOfYear)
+            cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+
+            val myFormat = "dd.MM.yyyy" // mention the format you need
+            val sdf = SimpleDateFormat(myFormat, Locale.US)
+            textView.text = sdf.format(cal.time)
+
+        }
+        textView.setOnClickListener {
+            DatePickerDialog(this@AddDateMaActivity, dateSetListener,
+                    cal.get(Calendar.YEAR),
+                    cal.get(Calendar.MONTH),
+                    cal.get(Calendar.DAY_OF_MONTH)).show()
+        }
+
         dbRef = db.document("IceCreams/Flavours")
 
 
@@ -84,22 +108,25 @@ class AddDateMaActivity : AppCompatActivity() {
 
             }
 
-
-
-// While the file names are the same, the references point to different files
+            // While the file names are the same, the references point to different files
             mountainsRef.name == mountainImagesRef.name    // true
             mountainsRef.path == mountainImagesRef.path    // false
 
 
-//            btnSave.progress = 0
-//            val items = HashMap<String, Any>()
-//            items.put("dateinto", edtDateInto.text.toString())
-//            db.collection("Maintenance").document(edtBranchID.text.toString().toUpperCase()).set(items).addOnSuccessListener {
-//                 Toast.makeText(this, "Successfully uploaded to the database :)", Toast.LENGTH_LONG).show()
-//                 btnSave.progress = 100
-//            }.addOnFailureListener {
-//                exception: java.lang.Exception -> Toast.makeText(this, exception.toString(), Toast.LENGTH_LONG).show()
-//            }
+            btnSave.progress = 0
+            val items = HashMap<String, Any>()
+            items.put("dateinto", edtDateInto.text.toString())
+            db.collection("Maintenance").document(edtBranchID.text.toString().toUpperCase()).set(items).addOnSuccessListener {
+                 Toast.makeText(this, "Successfully uploaded to the database :)", Toast.LENGTH_LONG).show()
+                 btnSave.progress = 100
+                edtBranchID.setText("")
+                edtDateInto.setText("")
+
+
+            }.addOnFailureListener {
+                exception: java.lang.Exception -> Toast.makeText(this, exception.toString(), Toast.LENGTH_LONG).show()
+
+            }
         }
 
 
@@ -143,7 +170,7 @@ class AddDateMaActivity : AppCompatActivity() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Select your picture")
 
-// add a list
+        // add a list
         val uploadimg = arrayOf("1. Take a picture", "2. Select from your galley")
         builder.setItems(uploadimg) { _, which ->
             when (which) {
@@ -156,14 +183,48 @@ class AddDateMaActivity : AppCompatActivity() {
                 1-> {
                     //Permission -> EXTERNAL STORAGE
                     Log.e("Image","Gallery")
+                    checkPermissionExternalStore()
                 }
             }
         }
 
-// create and show the alert dialog
+        // create and show the alert dialog
         val dialog = builder.create()
         dialog.show()
     }
+
+    private fun checkPermissionExternalStore() {
+        //Build.VERSION.SDK_INT < 23
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+            Log.e("Read Storage","3333")
+        }
+        //Build.VERSION.SDK_INT >= 23
+        else {
+            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), PERMISSIONS_REQUEST_EXTERNAL_STORAGE)
+        }
+    }
+    override fun onRequestPermissionsReadExternalResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+
+        when (requestCode) {
+            PERMISSIONS_REQUEST_EXTERNAL_STORAGE -> {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    toast("อัพโหลดรูปจากตัวเครื่อง")
+                    dispatchTakePictureIntent()
+
+                } else {
+                    Log.e("SSS","22")
+                }
+            }
+        }
+
+    }
+
+
+
+
+
+
 
     private fun checkPermissionCamera() {
         //Build.VERSION.SDK_INT < 23
@@ -191,18 +252,6 @@ class AddDateMaActivity : AppCompatActivity() {
                 }
             }
         }
-
-//        private fun checkPermissionExternalStor() {
-//            //Build.VERSION.SDK_INT < 23
-//            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
-//                Log.e("SSS","3333")
-//            }
-//            //Build.VERSION.SDK_INT >= 23
-//            else {
-//                ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.CAMERA), PERMISSIONS_REQUEST_CAMERA)
-//            }
-//        }
-
 
     }
 
