@@ -36,6 +36,7 @@ import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.june.testlab1.R.id.menu1
+import org.jetbrains.anko.act
 import org.jetbrains.anko.toast
 import java.io.File
 import java.io.IOException
@@ -47,7 +48,9 @@ class AddDateMaActivity : AppCompatActivity() {
 
     private val PERMISSIONS_REQUEST_CAMERA = 100
     private val PERMISSIONS_REQUEST_EXTERNAL_STORAGE = 200
+
     val REQUEST_TAKE_PHOTO  = 1
+    val REQUEST_SELECT_IMAGE_IN_ALBUM  = 2
     var mCurrentPhotoPath: String = ""
 
 
@@ -196,40 +199,20 @@ class AddDateMaActivity : AppCompatActivity() {
     private fun checkPermissionExternalStore() {
         //Build.VERSION.SDK_INT < 23
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-            Log.e("Read Storage","3333")
+            Log.e("Read Storage","2")
+            selectImageInAlbum()
         }
         //Build.VERSION.SDK_INT >= 23
         else {
             ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), PERMISSIONS_REQUEST_EXTERNAL_STORAGE)
         }
     }
-    override fun onRequestPermissionsReadExternalResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
-
-        when (requestCode) {
-            PERMISSIONS_REQUEST_EXTERNAL_STORAGE -> {
-                // If request is cancelled, the result arrays are empty.
-                if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    toast("อัพโหลดรูปจากตัวเครื่อง")
-                    dispatchTakePictureIntent()
-
-                } else {
-                    Log.e("SSS","22")
-                }
-            }
-        }
-
-    }
-
-
-
-
-
 
 
     private fun checkPermissionCamera() {
         //Build.VERSION.SDK_INT < 23
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
-            Log.e("SSS","3333")
+            Log.e("Camera","1")
             toast("เปิดกล้อง")
             dispatchTakePictureIntent()
         }
@@ -251,10 +234,27 @@ class AddDateMaActivity : AppCompatActivity() {
                     Log.e("SSS","22")
                 }
             }
+            REQUEST_SELECT_IMAGE_IN_ALBUM -> {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    toast("อัพโหลดรูปจากตัวเครื่อง")
+                    selectImageInAlbum()
+
+                } else {
+                    Log.e("SSS","22")
+                }
+            }
         }
 
     }
 
+    private fun selectImageInAlbum() {
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        intent.type = "image/*"
+        if (intent.resolveActivity(packageManager) != null) {
+            startActivityForResult(intent, REQUEST_SELECT_IMAGE_IN_ALBUM)
+        }
+    }
     private fun dispatchTakePictureIntent() {
         Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
             // Ensure that there's a camera activity to handle the intent
@@ -293,11 +293,28 @@ class AddDateMaActivity : AppCompatActivity() {
                             .into(photoImageView)
 
                 } else {
-                    Log.e("SSS","22")
+                    Log.e("CCC","11")
+                }
+            }
+            REQUEST_SELECT_IMAGE_IN_ALBUM -> {
+                // If request is cancelled, the result arrays are empty.
+                if (resultCode == Activity.RESULT_OK) {
+                    //
+                    val selectedImage: Uri? = data?.data
+                    var path  =  getPath(selectedImage!!)
+                    Log.e("Path",path)
+                    Glide.with(this)
+                            .load(path)
+                            .into(photoImageView)
+
+                } else {
+                    Log.e("AAA","22")
                 }
             }
         }
     }
+
+
 
     @Throws(IOException::class)
     private fun createImageFile(): File {
@@ -312,6 +329,19 @@ class AddDateMaActivity : AppCompatActivity() {
             // Save a file: path for use with ACTION_VIEW intents
             mCurrentPhotoPath = absolutePath
         }
+    }
+    fun getPath(uri: Uri): String {
+        val projection = arrayOf(MediaStore.Images.Media.DATA)
+        val cursor = contentResolver.query(uri, projection, null, null, null)
+        var column_index = 0
+        if (cursor != null) {
+            column_index = cursor!!.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
+            cursor!!.moveToFirst()
+            val path = cursor!!.getString(column_index)
+            cursor!!.close()
+            return path
+        } else
+            return uri.path
     }
 }
 

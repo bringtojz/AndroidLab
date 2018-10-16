@@ -39,6 +39,14 @@
           }
         },
         {
+          "client_id": "523425071082-0ejtklv4geo1d0vpcp21s51t94feng02.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.june.testlab1",
+            "certificate_hash": "1dc8d9c39c739f9e4f1639a7cdd1cbd8965c1b65"
+          }
+        },
+        {
           "client_id": "523425071082-p0r3t58d8d9vri14vdo6id6v4saqd9o0.apps.googleusercontent.com",
           "client_type": 3
         }

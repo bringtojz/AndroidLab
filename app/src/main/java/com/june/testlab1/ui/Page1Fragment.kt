@@ -16,7 +16,13 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_page1.*
 import android.content.Intent
+import android.location.Location
+import android.location.LocationManager
+import android.widget.TextView
+import com.google.android.gms.common.ConnectionResult
+import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -26,6 +32,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.june.testlab1.R.id.btnBack
+import com.livinglifetechway.k4kotlin.TAG
 
 import com.livinglifetechway.k4kotlin.toast
 
@@ -35,33 +42,29 @@ private const val ARG_PARAM2 = "param2"
 
 
 class Page1Fragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
+    private var param1: String? = null
+    private var param2: String? = null
+    private lateinit var map: GoogleMap
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
+    private var listener: OnFragmentInteractionListener? = null
+
+
+    override fun onMapReady(p0: GoogleMap?) {
+        map.getUiSettings().setZoomControlsEnabled(true)
+        map.setOnMarkerClickListener(this)
+
+        val myPlace = LatLng(40.73, -73.99)  // this is New York
+        map.addMarker(MarkerOptions().position(myPlace).title("My Favorite City"))
+        map.moveCamera(CameraUpdateFactory.newLatLng(myPlace))
+    }
 
     override fun onMarkerClick(p0: Marker?) = false
 
-    private lateinit var mMap: GoogleMap
-    private lateinit var fusedLocationClient: FusedLocationProviderClient
-
-    override fun onMapReady(googleMap: GoogleMap) {
-        mMap = googleMap
-
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
-
-    }
-
-
-    private var param1: String? = null
-    private var param2: String? = null
-    private var listener: OnFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this.requireActivity())
-
     }
-
-
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

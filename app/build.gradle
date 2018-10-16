@@ -73,6 +73,7 @@ dependencies {
 
     //Service Location
     implementation 'com.google.android.gms:play-services-location:16.0.0'
+
     //add MultiDex
     implementation 'com.android.support:multidex:1.0.3'
 
@@ -90,6 +91,7 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
     implementation "io.reactivex.rxjava2:rxkotlin:$rxkotlin_version"
     implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+
 
 
 }
