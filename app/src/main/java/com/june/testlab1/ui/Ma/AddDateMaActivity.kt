@@ -1,6 +1,7 @@
 package com.june.testlab1.ui.Ma
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Intent
@@ -22,6 +23,7 @@ import android.os.Environment
 import android.provider.MediaStore
 import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityCompat
+import android.support.v4.app.ActivityCompat.startActivityForResult
 import android.support.v4.content.ContextCompat
 import android.support.v4.content.FileProvider
 import android.support.v7.app.AlertDialog
@@ -42,6 +44,7 @@ import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class AddDateMaActivity : AppCompatActivity() {
@@ -53,6 +56,8 @@ class AddDateMaActivity : AppCompatActivity() {
     val REQUEST_SELECT_IMAGE_IN_ALBUM  = 2
     var mCurrentPhotoPath: String = ""
 
+    val items = HashMap<String, Any>()
+    var listTemp = ArrayList<String>()
 
     var db : FirebaseFirestore = FirebaseFirestore.getInstance()
     var storage : FirebaseStorage  = FirebaseStorage.getInstance()
@@ -68,7 +73,7 @@ class AddDateMaActivity : AppCompatActivity() {
 
         //DatePicker
         val textView: TextView = findViewById(R.id.edtDateInto)
-        textView.text = SimpleDateFormat("dd.MM.yyyy").format(System.currentTimeMillis())
+        textView.text = SimpleDateFormat("MM.dd.yyyy").format(System.currentTimeMillis())
         var cal = Calendar.getInstance()
         val dateSetListener = DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
             cal.set(Calendar.YEAR, year)
@@ -117,13 +122,21 @@ class AddDateMaActivity : AppCompatActivity() {
 
 
             btnSave.progress = 0
-            val items = HashMap<String, Any>()
-            items.put("dateinto", edtDateInto.text.toString())
-            db.collection("Maintenance").document(edtBranchID.text.toString().toUpperCase()).set(items).addOnSuccessListener {
+
+            listTemp.add(edtBranchID.text.toString().toUpperCase())
+            items.put("dateinto",listTemp)
+
+            var arrayListData = mutableListOf<String>()
+
+
+
+
+            db.collection("Maintenance").document(edtDateInto.text.toString()).set(items).addOnSuccessListener {
                  Toast.makeText(this, "Successfully uploaded to the database :)", Toast.LENGTH_LONG).show()
                  btnSave.progress = 100
                 edtBranchID.setText("")
                 edtDateInto.setText("")
+                listTemp.removeAll(listOf(""))
 
 
             }.addOnFailureListener {
@@ -131,6 +144,7 @@ class AddDateMaActivity : AppCompatActivity() {
 
             }
         }
+
 
 
 
