@@ -1,5 +1,6 @@
 package com.june.testlab1.ui
 
+import android.annotation.SuppressLint
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -15,7 +16,9 @@ import org.jetbrains.anko.toast
 
 class Page2_PriceActivity : AppCompatActivity() {
 
-    val Showerror = "รหัสไปรษณีย์ปลายทางผิด"
+    val ShowPostError = "รหัสไปรษณีย์ปลายทางผิด"
+    val ShowBranchError = "รหัสสาขาผิด"
+    @SuppressLint("CheckResult")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_page2__price)
@@ -37,7 +40,6 @@ class Page2_PriceActivity : AppCompatActivity() {
                                 //on Next 200 OK
                                 {
                                     Log.e("Status", "On Next")
-
                                     txtServiceDetail.text = it.branch!![0]!!.sV.toString()
                                     edtRouteDetail.setText(it.branch!![0]!!.route)
                                     edtBoxSizeEnvelopDetail.setText(it.branch!![0]!!.priceMap)
@@ -58,7 +60,8 @@ class Page2_PriceActivity : AppCompatActivity() {
                                 },
                                 //on Error
                                 { Log.e("Status", "On Error")
-                                    edtBranchID.error = Showerror
+                                    edtBranchID.error = ShowBranchError
+                                    edtPostIdReceiver.error = ShowPostError
                                     txtServiceDetail.text = ""
                                     edtRouteDetail.setText("")
                                     edtBoxSizeEnvelopDetail.setText("")
@@ -119,7 +122,8 @@ class Page2_PriceActivity : AppCompatActivity() {
                             },
                             //on Error
                             { Log.e("Status", "On Error")
-                                edtBranchID.error = Showerror
+                                edtBranchID.error = ShowBranchError
+                                edtPostIdReceiver.error = ShowPostError
                                 txtServiceDetail.text = ""
                                 edtRouteDetail.setText("")
                                 edtBoxSizeEnvelopDetail.setText("")

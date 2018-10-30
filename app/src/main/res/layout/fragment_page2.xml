@@ -12,8 +12,7 @@
 
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:elevation="0dp">
+            android:layout_height="wrap_content">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/appbar"
@@ -37,10 +36,10 @@
             android:layout_marginTop="80dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-
+            android:elevation="5dp"
             android:clickable="true"
             android:foreground="?selectableItemBackground"
-            android:background="@drawable/input_buttun"
+            android:background="@drawable/btn_shadow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -71,7 +70,8 @@
             android:layout_marginRight="10dp"
             android:clickable="true"
             android:foreground="?selectableItemBackground"
-            android:background="@drawable/input_buttun"
+            android:background="@drawable/btn_shadow"
+            android:elevation="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -93,25 +93,38 @@
                 android:textSize="18dp"/>
 
         </RelativeLayout>
-        <!--<Button-->
-            <!--android:id="@+id/btnMa"-->
-            <!--android:layout_below="@+id/btnCheckPrice"-->
-            <!--android:layout_margin="10dp"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:background="@drawable/button_ring"-->
-            <!--android:text="Maintenance" />-->
+        <RelativeLayout
+            android:id="@+id/btnSearchBranch"
+            android:layout_below="@+id/btnMa"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:clickable="true"
+            android:foreground="?selectableItemBackground"
+            android:elevation="5dp"
+            android:background="@drawable/btn_shadow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <!--<android.support.design.widget.FloatingActionButton-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_alignParentTop="true"-->
-            <!--android:layout_alignParentRight="true"-->
-            <!--android:layout_marginRight="16dp"-->
-            <!--android:layout_marginTop="8dp"-->
-            <!--app:backgroundTint="@color/red"-->
-            <!--app:rippleColor="@color/green"-->
-            <!--app:srcCompat="@android:drawable/ic_dialog_email" />-->
+            <ImageView
+
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@id/txtSearchBranch"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_search_black_24dp"/>
+            <TextView
+                android:id="@+id/txtSearchBranch"
+                android:layout_centerInParent="true"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SearchBranch"
+                android:textSize="18dp"/>
+
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_alignParentBottom="true"
@@ -120,10 +133,10 @@
 
             <Button
                 android:id="@+id/btnPassTo21"
-                android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Go to RecycleView"/>
+                android:text="xxxxxxxxxx"/>
+
 
         </RelativeLayout>
 

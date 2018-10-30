@@ -1,4 +1,4 @@
-package com.june.testlab1.ui
+package com.june.testlab1.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.util.Log.e

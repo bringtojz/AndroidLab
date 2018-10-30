@@ -1,5 +1,6 @@
 package com.june.testlab1.ui
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -12,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.june.testlab1.R
+import com.june.testlab1.adapter.MyAdapter
 import com.june.testlab1.networking.APIModule
 import com.june.testlab1.networking.modelAPI.starwar.ResultsItem
 import com.june.testlab1.ui.Ma.MaActivity
@@ -51,47 +53,33 @@ class Page2Fragment : Fragment() {
     }
 
 
+    @SuppressLint("CheckResult")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         btnMa.setOnClickListener {
-            var intent:Intent = Intent(activity, MaActivity::class.java)
+            var intent: Intent = Intent(activity, MaActivity::class.java)
             startActivity(intent)
         }
 
 
         btnCheckPrice.setOnClickListener {
-            var intent:Intent = Intent(activity, Page2_PriceActivity::class.java)
+            var intent: Intent = Intent(activity, Page2_PriceActivity::class.java)
             startActivity(intent)
         }
 
 
         btnPassTo21.setOnClickListener {
-            var intent:Intent = Intent(activity, Page2_1Activity::class.java)
+            var intent: Intent = Intent(activity, Page2_1Activity::class.java)
             startActivity(intent)
         }
 
-
-
-        APIModule.starwarconnect().getstarwar()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        { Log.e("Status", "On Next")
-                            viewAdapter = MyAdapter(it.results as List<ResultsItem>)
-                                recyclerView.setHasFixedSize(true)
-                                recyclerView.layoutManager = viewManager
-                                recyclerView.adapter = viewAdapter
-                                val nameView = view.findViewById(R.id.recycleview2_1) as TextView
-
-                        },
-                        //On Error
-                        { Log.e("Status", "On Error") },
-                        //On Complete
-                        { Log.e("Status", "On Complete") }
-                )
-
+        btnSearchBranch.setOnClickListener {
+            var intent: Intent = Intent(activity, Page2_1Activity::class.java)
+            startActivity(intent)
+        }
     }
+
 
 
 

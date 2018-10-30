@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import com.june.testlab1.R
+import com.june.testlab1.adapter.MyAdapter
 import com.june.testlab1.networking.APIModule
 import com.june.testlab1.networking.modelAPI.starwar.ResultsItem
 import io.reactivex.android.schedulers.AndroidSchedulers
