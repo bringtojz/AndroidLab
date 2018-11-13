@@ -5,6 +5,8 @@ import com.june.testlab1.networking.modelAPI.checkprice.CheckPriceReq
 import com.june.testlab1.networking.modelAPI.checkprice.CheckPriceResponse
 import com.june.testlab1.networking.modelAPI.marvel.MarvelResponse
 import com.june.testlab1.networking.modelAPI.marvel.ResultsItem
+import com.june.testlab1.networking.modelAPI.setprice.SetPriceRequest
+import com.june.testlab1.networking.modelAPI.setprice.SetPriceRespone
 import com.june.testlab1.networking.modelAPI.starwar.StarResponse
 import io.reactivex.Observable
 import okhttp3.ResponseBody
@@ -35,4 +37,7 @@ interface APIService {
 
     @POST ("KE_SETUPS/v1/updatePosPriceCheck")
     fun checkprice (@Body CheckPriceReq : CheckPriceReq) : Observable <CheckPriceResponse>
+
+    @POST ("KE_SETUPS/v1/updatePosPrice")
+    fun setprice (@Body SetPriceRequest : SetPriceRequest ) : Observable <SetPriceRespone>
 }

@@ -93,6 +93,5 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
 
 
-
 }
 apply plugin: 'com.google.gms.google-services'

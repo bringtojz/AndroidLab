@@ -74,8 +74,8 @@ class Page2Fragment : Fragment() {
             startActivity(intent)
         }
 
-        btnSearchBranch.setOnClickListener {
-            var intent: Intent = Intent(activity, Page2_1Activity::class.java)
+        btnSetPrice.setOnClickListener {
+            var intent: Intent = Intent(activity, SetPriceActivity::class.java)
             startActivity(intent)
         }
     }

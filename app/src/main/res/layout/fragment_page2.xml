@@ -94,7 +94,7 @@
 
         </RelativeLayout>
         <RelativeLayout
-            android:id="@+id/btnSearchBranch"
+            android:id="@+id/btnSetPrice"
             android:layout_below="@+id/btnMa"
             android:padding="10dp"
             android:layout_marginTop="10dp"
@@ -114,14 +114,14 @@
                 android:layout_centerVertical="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ic_search_black_24dp"/>
+                android:background="@drawable/ic_cached_black_24dp"/>
             <TextView
                 android:id="@+id/txtSearchBranch"
                 android:layout_centerInParent="true"
                 android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SearchBranch"
+                android:text="Set Price"
                 android:textSize="18dp"/>
 
         </RelativeLayout>

@@ -7,12 +7,10 @@ import android.util.Log
 import android.view.inputmethod.EditorInfo
 import com.june.testlab1.R
 import com.june.testlab1.networking.APIModule
-import com.june.testlab1.networking.modelAPI.BranchReq
 import com.june.testlab1.networking.modelAPI.checkprice.CheckPriceReq
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_page2__price.*
-import org.jetbrains.anko.toast
 
 class Page2_PriceActivity : AppCompatActivity() {
 
@@ -147,6 +145,8 @@ class Page2_PriceActivity : AppCompatActivity() {
                     )
 
         }
+
+
     }
 }
 
