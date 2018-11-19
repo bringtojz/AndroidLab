@@ -13,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.june.testlab1.R
+//import com.june.testlab1.R.id.btnPassTo21
 import com.june.testlab1.adapter.MyAdapter
 import com.june.testlab1.networking.APIModule
 import com.june.testlab1.networking.modelAPI.starwar.ResultsItem
@@ -46,8 +47,6 @@ class Page2Fragment : Fragment() {
         }
     }
 
-
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
          return inflater.inflate (R.layout.fragment_page2, container, false)
     }
@@ -57,10 +56,10 @@ class Page2Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        btnMa.setOnClickListener {
-            var intent: Intent = Intent(activity, MaActivity::class.java)
-            startActivity(intent)
-        }
+//        btnMa.setOnClickListener {
+//            var intent: Intent = Intent(activity, MaActivity::class.java)
+//            startActivity(intent)
+//        }
 
 
         btnCheckPrice.setOnClickListener {
@@ -69,10 +68,10 @@ class Page2Fragment : Fragment() {
         }
 
 
-        btnPassTo21.setOnClickListener {
-            var intent: Intent = Intent(activity, Page2_1Activity::class.java)
-            startActivity(intent)
-        }
+//        btnPassTo21.setOnClickListener {
+//            var intent: Intent = Intent(activity, Page2_1Activity::class.java)
+//            startActivity(intent)
+//        }
 
         btnSetPrice.setOnClickListener {
             var intent: Intent = Intent(activity, SetPriceActivity::class.java)

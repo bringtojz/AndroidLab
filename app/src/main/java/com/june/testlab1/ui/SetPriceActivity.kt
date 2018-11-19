@@ -1,8 +1,10 @@
 package com.june.testlab1.ui
 
 import android.annotation.SuppressLint
+import android.content.DialogInterface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.util.Log
 import android.view.inputmethod.EditorInfo
 import com.facebook.R.id.button
@@ -25,12 +27,17 @@ class SetPriceActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_set_price)
 
+        val mProgressDialog = indeterminateProgressDialog("แก้ไขราคาเรียบร้อย")
+        val ShowBranchError = "รหัสสาขาผิด"
+
+
 
         btnBack.setOnClickListener {
             finish()
         }
 
         btnSetPrice.setOnClickListener {
+            mProgressDialog.show()
             var body: SetPriceRequest = SetPriceRequest("PC-KAMON","KAMON",edtBranchID.text.toString())
             APIModule.setpriceconnect().setprice(body)
                     .subscribeOn(Schedulers.io())
@@ -38,16 +45,15 @@ class SetPriceActivity : AppCompatActivity() {
                     .subscribe(
                             //on Next 200 OK
                             { Log.e("Status", "On Next")
-                                val mProgressDialog = indeterminateProgressDialog("Please Wait")
-                                mProgressDialog.show()
+                                toast("ปรับราคาเรียบร้อย")
                                 mProgressDialog.dismiss()
                             },
                             //on Error
-                            { Log.e("Status", "On Error") },
+                            { Log.e("Status", "On Error")
+                               edtBranchID.error = ShowBranchError
+                            },
                             //On Complete
-                            { Log.e("Status", "On Complete")
-
-                            }
+                            { Log.e("Status", "On Complete") }
                     )
 
         }

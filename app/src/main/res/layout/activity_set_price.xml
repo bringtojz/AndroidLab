@@ -42,6 +42,8 @@
 
         <EditText
             android:id="@+id/edtBranchID"
+            android:inputType="textCapCharacters"
+            android:maxLength="4"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:hint="BRANCH"
