@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="58dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:paddingLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:background="@color/orange"
+            android:src="@drawable/ic_arrow_back_black_24dp"/>
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:elevation="0dp">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/appbar"
+                android:paddingLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:title="ADD POSTCODE"
+                app:titleTextColor="@color/white"
+                android:background="@color/orange" />
+        </android.support.design.widget.AppBarLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/lyTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/edtBranchID"
+            android:inputType="textCapCharacters"
+            android:maxLength="4"
+            android:textAllCaps="true"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:layout_alignParentLeft="true"
+            android:hint="รหัส (SHOP)" />
+
+
+        <EditText
+            android:id="@+id/edtPostCode"
+            android:layout_toRightOf="@+id/edtBranchID"
+            android:inputType="number"
+            android:layout_width="160dp"
+            android:maxLength="5"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:imeOptions="actionSearch"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:hint="รหัสไปรษณีย์ที่จะเพิ่ม" />
+
+        <EditText
+            android:id="@+id/edtAmphur0Detail"
+            android:layout_below="@+id/edtBranchID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text="อำเภอ/เขต : xxx"/>
+
+        <TextView
+            android:id="@+id/txtDistrict0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/edtDistrict0Detail"
+            android:layout_below="@+id/edtPostCode"
+            android:layout_marginTop="10dp"
+            android:text="ตำบล/แขวง :"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+
+        <EditText
+            android:id="@+id/edtDistrict0Detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtPostCode"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentRight="true"
+            android:enabled="false"
+            android:text="xxx"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edtAmphur1Detail"
+            android:layout_below="@+id/edtAmphur0Detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="-10dp"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text="อำเภอ/เขต : xxx"/>
+
+        <TextView
+            android:id="@+id/txtDistrict1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_toLeftOf="@+id/edtDistrict1Detail"
+            android:layout_below="@+id/edtDistrict0Detail"
+            android:layout_marginBottom="12dp"
+            android:text="ตำบล/แขวง :"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/edtDistrict1Detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtDistrict0Detail"
+            android:layout_marginTop="-10dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentRight="true"
+            android:enabled="false"
+            android:text="xxx"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+
+        <EditText
+            android:id="@+id/edtAmphur2Detail"
+            android:layout_below="@+id/edtAmphur1Detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="-10dp"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text="อำเภอ/เขต : xxx"/>
+
+        <TextView
+            android:id="@+id/txtDistrict2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_below="@+id/txtDistrict1"
+            android:layout_toLeftOf="@id/edtDistrict2Detail"
+            android:layout_marginBottom="12dp"
+
+            android:text="ตำบล/แขวง :"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/edtDistrict2Detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtDistrict1"
+            android:layout_marginTop="-10dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentRight="true"
+            android:enabled="false"
+            android:text="xxx"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+
+        <EditText
+            android:id="@+id/edtAmphur3Detail"
+            android:layout_below="@+id/edtAmphur2Detail"
+            android:layout_toRightOf="@+id/txtAmphur3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="-10dp"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text="อำเภอ/เขต : xxx"/>
+
+        <TextView
+            android:id="@+id/txtDistrict3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_below="@+id/txtDistrict2"
+            android:layout_toLeftOf="@id/edtDistrict3Detail"
+            android:layout_marginBottom="12dp"
+            android:text="ตำบล/แขวง :"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/edtDistrict3Detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtDistrict2"
+            android:layout_marginTop="-10dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentRight="true"
+            android:enabled="false"
+            android:text="xxx"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+
+        <EditText
+            android:id="@+id/edtAmphur4Detail"
+            android:layout_below="@+id/edtAmphur3Detail"
+            android:layout_toRightOf="@+id/txtAmphur4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="-10dp"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text="อำเภอ/เขต : xxx"/>
+
+        <TextView
+            android:id="@+id/txtDistrict4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_below="@+id/txtDistrict3"
+            android:layout_toLeftOf="@id/edtDistrict4Detail"
+            android:layout_marginBottom="12dp"
+            android:text="ตำบล/แขวง :"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/edtDistrict4Detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtDistrict3"
+            android:layout_marginTop="-10dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentRight="true"
+            android:enabled="false"
+            android:text="xxx"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edtAmphur5Detail"
+            android:layout_below="@+id/edtAmphur4Detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="-10dp"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text="อำเภอ/เขต : xxx"/>
+
+        <TextView
+            android:id="@+id/txtDistrict5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_below="@+id/txtDistrict4"
+            android:layout_toLeftOf="@id/edtDistrict5Detail"
+            android:layout_marginBottom="10dp"
+            android:text="ตำบล/แขวง :"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/edtDistrict5Detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtDistrict4"
+            android:layout_marginTop="-10dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentRight="true"
+            android:enabled="false"
+            android:text="xxx"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edtAmphur6Detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtAmphur5Detail"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="-10dp"
+            android:text="อำเภอ/เขต : xxx"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtDistrict6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_below="@+id/txtDistrict5"
+            android:layout_toLeftOf="@id/edtDistrict6Detail"
+            android:layout_marginBottom="10dp"
+            android:text="ตำบล/แขวง :"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/edtDistrict6Detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtDistrict5"
+            android:layout_marginTop="-10dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentRight="true"
+            android:enabled="false"
+            android:text="xxx"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edtAmphur7Detail"
+            android:layout_below="@+id/edtAmphur6Detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="-10dp"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text="อำเภอ/เขต : xxx"/>
+
+        <TextView
+            android:id="@+id/txtDistrict7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_below="@+id/txtDistrict6"
+            android:layout_toLeftOf="@id/edtDistrict7Detail"
+            android:layout_marginBottom="10dp"
+            android:text="ตำบล/แขวง :"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/edtDistrict7Detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtDistrict6"
+            android:layout_marginTop="-10dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentRight="true"
+            android:enabled="false"
+            android:text="xxx"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtPriceZone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:hint="*หมายเหตุ : เพิ่มแล้วให้ SHOP ปิดเปิด POS ใหม่"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="16sp"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/CheckPrice"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:id="@+id/btnAddPostCode"
+            android:foreground="?selectableItemBackground"
+            android:layout_alignParentBottom="true"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            android:clickable="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_facebook">
+
+            <ImageView
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@id/txtSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_add_circle_outline_black_24dp"/>
+            <TextView
+                android:id="@+id/txtSearch"
+                android:layout_centerInParent="true"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="กดเพิ่มรหัสไปรษณีย์"
+                android:textSize="18dp"/>
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>
+

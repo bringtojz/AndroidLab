@@ -87,7 +87,8 @@
         <activity android:name=".ui.Page2_PriceActivity" />
         <activity android:name=".ui.Ma.MaActivity" />
         <activity android:name=".ui.Ma.AddDateMaActivity" />
-        <activity android:name=".ui.SetPriceActivity"></activity>
+        <activity android:name=".ui.SetPriceActivity" />
+        <activity android:name=".ui.AddPostCodeActivity"></activity>
     </application>
 
 </manifest>

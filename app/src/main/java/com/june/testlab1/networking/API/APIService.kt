@@ -1,6 +1,8 @@
 package com.june.testlab1.networking.API
 
 import com.june.testlab1.networking.modelAPI.*
+import com.june.testlab1.networking.modelAPI.addpostcode.AddPostCodeRequest
+import com.june.testlab1.networking.modelAPI.addpostcode.AddPostCodeResponse
 import com.june.testlab1.networking.modelAPI.checkprice.CheckPriceReq
 import com.june.testlab1.networking.modelAPI.checkprice.CheckPriceResponse
 import com.june.testlab1.networking.modelAPI.marvel.MarvelResponse
@@ -40,4 +42,7 @@ interface APIService {
 
     @POST ("KE_SETUPS/v1/updatePosPrice")
     fun setprice (@Body SetPriceRequest : SetPriceRequest ) : Observable <SetPriceRespone>
+
+    @POST ("KE_SETUPS/v1/updateeMasterZipcodeEffectiveDate")
+    fun addpostcode (@Body AddPostCodeRequest: AddPostCodeRequest ) : Observable <AddPostCodeResponse>
 }
