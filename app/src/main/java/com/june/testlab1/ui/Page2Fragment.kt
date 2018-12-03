@@ -20,6 +20,7 @@ import com.june.testlab1.networking.modelAPI.starwar.ResultsItem
 import com.june.testlab1.ui.Ma.MaActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.content_menu_support.*
 import kotlinx.android.synthetic.main.fragment_page2.*
 
 
@@ -68,10 +69,10 @@ class Page2Fragment : Fragment() {
         }
 
 
-        btnAddPostCode.setOnClickListener {
-            var intent: Intent = Intent(activity, AddPostCodeActivity::class.java)
-            startActivity(intent)
-        }
+//        btnAddPostCode.setOnClickListener {
+//            var intent: Intent = Intent(activity, AddPostCodeActivity::class.java)
+//            startActivity(intent)
+//        }
 
         btnSetPrice.setOnClickListener {
             var intent: Intent = Intent(activity, SetPriceActivity::class.java)

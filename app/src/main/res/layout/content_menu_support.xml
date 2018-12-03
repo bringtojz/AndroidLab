@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:id="@+id/btnCheckPrice"
+            android:padding="10dp"
+            android:layout_margin="2dp"
+            android:elevation="5dp"
+            android:clickable="true"
+            android:foreground="?selectableItemBackground"
+            android:background="@drawable/btn_shadow"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/imgLogoCheckPrice"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_pay_per_click_128dp"/>
+
+            <TextView
+                android:id="@+id/txtCheckPrice"
+                android:layout_below="@+id/imgLogoCheckPrice"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/white"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Check Price"
+                android:textSize="26dp"/>
+            <TextView
+                android:id="@+id/txtHintCheckPrice"
+                android:layout_below="@id/txtCheckPrice"
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint="*เช็คราคาเพื่อเทียบกับทาง SHOP"
+                android:textSize="16dp"/>
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:id="@+id/btnSetPrice"
+                android:layout_margin="2dp"
+                android:clickable="true"
+                android:foreground="?selectableItemBackground"
+                android:background="@drawable/btn_shadow"
+                android:elevation="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imgLogoSetPrice"
+                    android:layout_marginRight="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_rotation_128dp"/>
+                <TextView
+                    android:id="@+id/txtSetPrice"
+                    android:layout_below="@+id/imgLogoSetPrice"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Set Price"
+                    android:textSize="26dp"/>
+                <TextView
+                    android:id="@+id/txtHintSetPrice"
+                    android:layout_below="@id/txtSetPrice"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:hint="*ใช้รีเซ็ทราคาไม่ตรง หรือ หน้า Package ไม่มี Seal Bag"
+                    android:textSize="16sp"/>
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
