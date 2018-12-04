@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:hint="*เช็คราคาเพื่อเทียบกับทาง SHOP"
-                android:textSize="16dp"/>
+                android:textSize="16dp" />
 
 
         </RelativeLayout>
@@ -100,6 +100,8 @@
                     android:textSize="16sp"/>
 
 
+
+
             </RelativeLayout>
 
         </LinearLayout>
@@ -118,6 +120,49 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
+
+            <RelativeLayout
+                android:id="@+id/btnAddPostalCode"
+                android:layout_margin="2dp"
+                android:clickable="true"
+                android:foreground="?selectableItemBackground"
+                android:background="@drawable/btn_shadow"
+                android:elevation="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imgLogoAddPostalCode"
+                    android:layout_marginRight="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_post_office_128dp"/>
+
+                <TextView
+                    android:id="@+id/txtAddPostalCode"
+                    android:layout_below="@+id/imgLogoAddPostalCode"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add PostalCode"
+                    android:textSize="23dp"/>
+
+                <TextView
+                    android:id="@+id/txtHintAddPostalCode"
+                    android:layout_below="@id/txtAddPostalCode"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:hint="*ใช้กรณีที่ Shop ไม่มีเลขไปรษณีย์แต่สาขาอื่นมี"
+                    android:textSize="16dp" />
+
+
+
+            </RelativeLayout>
 
         </LinearLayout>
 

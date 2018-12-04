@@ -69,10 +69,10 @@ class Page2Fragment : Fragment() {
         }
 
 
-//        btnAddPostCode.setOnClickListener {
-//            var intent: Intent = Intent(activity, AddPostCodeActivity::class.java)
-//            startActivity(intent)
-//        }
+        btnAddPostalCode.setOnClickListener {
+            var intent: Intent = Intent(activity, AddPostCodeActivity::class.java)
+            startActivity(intent)
+        }
 
         btnSetPrice.setOnClickListener {
             var intent: Intent = Intent(activity, SetPriceActivity::class.java)
