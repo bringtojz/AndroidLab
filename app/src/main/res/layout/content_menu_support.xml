@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
+<LinearLayout android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
 
 
@@ -31,7 +32,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ic_pay_per_click_128dp"/>
+                android:src="@drawable/ic_p1"/>
 
             <TextView
                 android:id="@+id/txtCheckPrice"
@@ -78,7 +79,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/ic_rotation_128dp"/>
+                    android:src="@drawable/ic_p2"/>
                 <TextView
                     android:id="@+id/txtSetPrice"
                     android:layout_below="@+id/imgLogoSetPrice"
@@ -137,7 +138,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/ic_post_office_128dp"/>
+                    android:src="@drawable/ic_postal_128dp"/>
 
                 <TextView
                     android:id="@+id/txtAddPostalCode"

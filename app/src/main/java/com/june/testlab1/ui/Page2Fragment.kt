@@ -57,12 +57,6 @@ class Page2Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        btnMa.setOnClickListener {
-//            var intent: Intent = Intent(activity, MaActivity::class.java)
-//            startActivity(intent)
-//        }
-
-
         btnCheckPrice.setOnClickListener {
             var intent: Intent = Intent(activity, Page2_PriceActivity::class.java)
             startActivity(intent)
