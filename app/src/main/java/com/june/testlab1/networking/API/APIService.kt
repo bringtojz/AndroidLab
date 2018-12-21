@@ -10,6 +10,8 @@ import com.june.testlab1.networking.modelAPI.marvel.ResultsItem
 import com.june.testlab1.networking.modelAPI.setprice.SetPriceRequest
 import com.june.testlab1.networking.modelAPI.setprice.SetPriceRespone
 import com.june.testlab1.networking.modelAPI.starwar.StarResponse
+import com.june.testlab1.networking.modelAPI.user.RegisterApiReq
+import com.june.testlab1.networking.modelAPI.user.RegisterApiResponse
 import io.reactivex.Observable
 import okhttp3.ResponseBody
 import retrofit2.http.Body
@@ -36,6 +38,9 @@ interface APIService {
 
     @POST ("KE_POSDB/v1/authen_userlogin")
     fun postlogin (@Body LoginwithAPIReq : LoginwithAPIReq) : Observable <ResponseBody>
+
+    @POST ("KE_POSDB/v1/CreateUserLogin")
+    fun registerwithapi (@Body RegisterApiReq : RegisterApiReq) : Observable <RegisterApiResponse>
 
     @POST ("KE_SETUPS/v1/updatePosPriceCheck")
     fun checkprice (@Body CheckPriceReq : CheckPriceReq) : Observable <CheckPriceResponse>

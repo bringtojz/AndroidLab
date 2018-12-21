@@ -88,7 +88,8 @@
         <activity android:name=".ui.Ma.MaActivity" />
         <activity android:name=".ui.Ma.AddDateMaActivity" />
         <activity android:name=".ui.SetPriceActivity" />
-        <activity android:name=".ui.AddPostCodeActivity"></activity>
+        <activity android:name=".ui.AddPostCodeActivity" />
+        <activity android:name=".RegisterAPIActivity"></activity>
     </application>
 
 </manifest>

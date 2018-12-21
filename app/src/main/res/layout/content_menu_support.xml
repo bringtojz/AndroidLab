@@ -42,7 +42,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Check Price"
+                android:text="CHECK PRICE"
                 android:textSize="26dp"/>
             <TextView
                 android:id="@+id/txtHintCheckPrice"
@@ -53,7 +53,6 @@
                 android:gravity="center"
                 android:hint="*เช็คราคาเพื่อเทียบกับทาง SHOP"
                 android:textSize="16dp" />
-
 
         </RelativeLayout>
 
@@ -88,7 +87,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Set Price"
+                    android:text="SET PRICE"
                     android:textSize="26dp"/>
                 <TextView
                     android:id="@+id/txtHintSetPrice"
@@ -99,9 +98,6 @@
                     android:gravity="center"
                     android:hint="*ใช้รีเซ็ทราคาไม่ตรง หรือ หน้า Package ไม่มี Seal Bag"
                     android:textSize="16sp"/>
-
-
-
 
             </RelativeLayout>
 
@@ -145,23 +141,22 @@
                     android:layout_below="@+id/imgLogoAddPostalCode"
                     android:layout_centerInParent="true"
                     android:textColor="@color/white"
+                    android:gravity="center"
                     android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Add PostalCode"
+                    android:text="ADD POSTALCODE"
                     android:textSize="23dp"/>
 
                 <TextView
                     android:id="@+id/txtHintAddPostalCode"
                     android:layout_below="@id/txtAddPostalCode"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:hint="*ใช้กรณีที่ Shop ไม่มีเลขไปรษณีย์แต่สาขาอื่นมี"
+                    android:hint="*ใช้กรณีที่ SHOP ไม่มีเลขไปรษณีย์แต่สาขาอื่นมี"
                     android:textSize="16dp" />
-
-
 
             </RelativeLayout>
 

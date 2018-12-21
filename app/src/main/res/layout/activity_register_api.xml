@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".RegisterAPIActivity">
+
+    <RelativeLayout
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="0dp"
+            android:src="@drawable/ic_team_128dp" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_weight="0.5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.github.florent37.materialtextfield.MaterialTextField
+            android:id="@+id/btnUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+
+            app:mtf_labelColor="#000"
+            app:mtf_image="@drawable/ic_people_white_24dp"
+            app:mtf_cardCollapsedHeight="4dp"
+            app:mtf_animationDuration="500"
+            app:mtf_hasFocus="false"
+            app:mtf_openKeyboardOnFocus="true">
+
+            <EditText
+                android:id="@+id/edtUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="USERNAME"
+                android:textColor="@color/black"
+                android:textColorHint="@color/darkgray"
+                android:textSize="18sp" />
+
+        </com.github.florent37.materialtextfield.MaterialTextField>
+
+        <com.github.florent37.materialtextfield.MaterialTextField
+        android:id="@+id/btnPassword"
+        android:layout_below="@+id/btnUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:mtf_labelColor="#000"
+        app:mtf_image="@drawable/ic_vpn_key_white_24dp"
+        app:mtf_cardCollapsedHeight="4dp"
+        app:mtf_animationDuration="500"
+        app:mtf_hasFocus="false"
+        app:mtf_openKeyboardOnFocus="true">
+
+        <EditText
+            android:id="@+id/edtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="PASSWORD"
+            android:textColor="@color/black"
+            android:textColorHint="@color/darkgray"
+            android:textSize="18sp" />
+        </com.github.florent37.materialtextfield.MaterialTextField>
+
+        <com.github.florent37.materialtextfield.MaterialTextField
+            android:id="@+id/btnEmployeeID"
+            android:layout_below="@+id/btnPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            app:mtf_labelColor="#000"
+            app:mtf_image="@drawable/ic_accessibility_white_24dp"
+            app:mtf_cardCollapsedHeight="4dp"
+            app:mtf_animationDuration="500"
+            app:mtf_hasFocus="false"
+            app:mtf_openKeyboardOnFocus="true">
+
+            <EditText
+                android:id="@+id/edtUserId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="7"
+                android:hint="รหัสพนักงาน"
+                android:textColor="@color/black"
+                android:textColorHint="@color/darkgray"
+                android:textSize="18sp" />
+
+        </com.github.florent37.materialtextfield.MaterialTextField>
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/btn_shadow"
+            android:text="REGISTER"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            />
+
+    </RelativeLayout>
+</LinearLayout>

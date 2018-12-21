@@ -57,18 +57,6 @@
         android:padding="20dp">
 
 
-        <com.facebook.login.widget.LoginButton
-            android:id="@+id/btnLoginWithFacebook"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/btn_facebook"
-            android:text="Login With Facebook"
-            android:textColor="@color/white"
-            android:textSize="18sp" />
-
-
-
         <RelativeLayout
             android:id="@+id/btnLoginWithApi"
             android:padding="10dp"
@@ -92,7 +80,7 @@
                 android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="LOGIN WITH GMAIL"
+                android:text="LOGIN WITH USER ID"
                 android:textSize="18dp"/>
 
         </RelativeLayout>

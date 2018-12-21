@@ -65,24 +65,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         callbackManager = CallbackManager.Factory.create()
-        btnLoginWithFacebook.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
-                    override fun onSuccess(result: LoginResult?) {
-                     //   txvResultLogin.text = "Login Success ${ result?.accessToken?.userId }" + "${ result?.accessToken?.token }"
-                    }
-
-                    override fun onCancel() {
-                    //    txvResultLogin.text = "Login Canceled"
-                    }
-
-                    override fun onError(error: FacebookException?) {
-
-                    }
-
-                }
-        )
-
-
-
 
     }
 
