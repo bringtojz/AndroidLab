@@ -12,6 +12,7 @@ import com.june.testlab1.R
 import com.june.testlab1.networking.APIModule
 import com.june.testlab1.networking.modelAPI.checkprice.CheckPriceReq
 import com.june.testlab1.networking.modelAPI.setprice.SetPriceRequest
+import com.june.testlab1.ui.Ma.ProgressDailog
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_set_price.*
@@ -22,14 +23,17 @@ import org.jetbrains.anko.toast
 
 class SetPriceActivity : AppCompatActivity() {
 
+    var showerror = "กรุณาใส่ชื่อสาขา"
+    var progressbar : ProgressDailog? = null
+
+    init {
+        progressbar = ProgressDailog.shared()
+    }
+
     @SuppressLint("CheckResult")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_set_price)
-
-        val mProgressDialog = indeterminateProgressDialog("แก้ไขราคาเรียบร้อย")
-        val ShowBranchError = "รหัสสาขาผิด"
-
 
 
         btnBack.setOnClickListener {
@@ -37,28 +41,36 @@ class SetPriceActivity : AppCompatActivity() {
         }
 
         btnSetPrice.setOnClickListener {
-            mProgressDialog.show()
-            var body: SetPriceRequest = SetPriceRequest("PC-KAMON","KAMON",edtBranchID.text.toString())
-            APIModule.setpriceconnect().setprice(body)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(
-                            //on Next 200 OK
-                            { Log.e("Status", "On Next")
-                                toast("ปรับราคาเรียบร้อย")
-                                mProgressDialog.dismiss()
-                            },
-                            //on Error
-                            { Log.e("Status", "On Error")
-                               edtBranchID.error = ShowBranchError
-                            },
-                            //On Complete
-                            { Log.e("Status", "On Complete") }
-                    )
+            if(edtBranchID.text.isBlank()){
+                edtBranchID.error = showerror
 
+            }else{
+
+                if(!progressbar!!.isAdded){
+                    progressbar?.show(supportFragmentManager,"Loading")
+                }
+
+                var body: SetPriceRequest = SetPriceRequest("PC-KAMON","KAMON",edtBranchID.text.toString())
+                APIModule.setpriceconnect().setprice(body)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(
+                                //on Next 200 OK
+                                { Log.e("Status", "On Next")
+                                    toast("ปรับราคาเรียบร้อย")
+                                    progressbar?.dismiss()
+                                },
+                                //on Error
+                                { Log.e("Status", "On Error")
+                                    progressbar?.dismiss()
+                                },
+                                //On Complete
+                                { Log.e("Status", "On Complete")
+                                    edtBranchID.text = null
+                                }
+                        )
+            }
         }
-
-
     }
 }
 
