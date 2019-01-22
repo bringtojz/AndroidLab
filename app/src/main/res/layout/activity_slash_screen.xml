@@ -17,7 +17,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="20dp"
             android:textColor="@color/black"
-            android:text="WELCOME TO KE SUPPORT APP"/>
+            android:text="KE SUPPORT APP V.1.0.2 Beta"/>
     </RelativeLayout>
 
 </LinearLayout>

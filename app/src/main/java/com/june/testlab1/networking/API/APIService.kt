@@ -7,6 +7,8 @@ import com.june.testlab1.networking.modelAPI.checkprice.CheckPriceReq
 import com.june.testlab1.networking.modelAPI.checkprice.CheckPriceResponse
 import com.june.testlab1.networking.modelAPI.marvel.MarvelResponse
 import com.june.testlab1.networking.modelAPI.marvel.ResultsItem
+import com.june.testlab1.networking.modelAPI.searchbranch.BranchReq
+import com.june.testlab1.networking.modelAPI.searchbranch.SearchBranchResponse
 import com.june.testlab1.networking.modelAPI.setprice.SetPriceRequest
 import com.june.testlab1.networking.modelAPI.setprice.SetPriceRespone
 import com.june.testlab1.networking.modelAPI.starwar.StarResponse
@@ -27,14 +29,9 @@ interface APIService {
     @POST ("planetary/apod")
     fun nasa (@Body nasa: Nasa): Observable<ResponseBody>
 
-    @POST ("KE_SETUPS/v1/GetPosBranch")
-    fun searchbranch (@Body BranchReq: BranchReq) : Observable<SearchResponse>
-
-    @GET ("v1/public/comics")
-    fun marvel (@Body marvelResponse: MarvelResponse ) : Observable <ResultsItem>
-
-    @GET ("api/people/")
-    fun getstarwar () : Observable <StarResponse>
+    //ค้นหาสาขา
+    @POST ("possupportwebapi/v1/GetPosBranch")
+    fun searchbranch (@Body BranchReq: BranchReq) : Observable<SearchBranchResponse>
 
     @POST ("KE_POSDB/v1/authen_userlogin")
     fun postlogin (@Body LoginwithAPIReq : LoginwithAPIReq) : Observable <ResponseBody>
@@ -42,12 +39,15 @@ interface APIService {
     @POST ("KE_POSDB/v1/CreateUserLogin")
     fun registerwithapi (@Body RegisterApiReq : RegisterApiReq) : Observable <RegisterApiResponse>
 
-    @POST ("KE_SETUPS/v1/updatePosPriceCheck")
+    //เช็คราคาใน POS
+    @POST ("possupportwebapi/v1/updatePosPriceCheck")
     fun checkprice (@Body CheckPriceReq : CheckPriceReq) : Observable <CheckPriceResponse>
 
-    @POST ("KE_SETUPS/v1/updatePosPrice")
+    //อัพเดทราคาใน POS
+    @POST ("possupportwebapi/v1/updatePosPrice")
     fun setprice (@Body SetPriceRequest : SetPriceRequest ) : Observable <SetPriceRespone>
 
-    @POST ("KE_SETUPS/v1/updateeMasterZipcodeEffectiveDate")
+    //เพิ่มรหัสไปรษณีย์ครับ
+    @POST ("possupportwebapi/v1/updateeMasterZipcodeEffectiveDate")
     fun addpostcode (@Body AddPostCodeRequest: AddPostCodeRequest ) : Observable <AddPostCodeResponse>
 }

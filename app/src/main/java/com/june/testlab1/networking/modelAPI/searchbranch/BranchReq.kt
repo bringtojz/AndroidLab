@@ -1,4 +1,4 @@
-package com.june.testlab1.networking.modelAPI
+package com.june.testlab1.networking.modelAPI.searchbranch
 
 
 import com.squareup.moshi.Json

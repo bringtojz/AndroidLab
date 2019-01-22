@@ -86,19 +86,16 @@
             android:text=""
             android:textSize="16sp"/>
 
-        <Button
+        <ImageView
             android:id="@+id/btnCallPhone"
-            android:layout_width="60dp"
-            android:layout_height="27dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@id/txtBranchName"
             android:layout_toRightOf="@id/edtTelDetail"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/btn_facebook"
-            android:clickable="true"
-            android:enabled="false"
-            android:text="Call"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:background="@drawable/ic_local_phone_black_24dp"
+            />
+
 
         <TextView
             android:id="@+id/txvAddress"
@@ -152,8 +149,34 @@
             android:textSize="16dp" />
 
         <TextView
-            android:id="@+id/txtTimeOpen"
+            android:id="@+id/txtRegionName"
             android:layout_below="@+id/txtTaxBranchName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:text="Zone :"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/edtRegionNameDetail"
+            android:layout_toRightOf="@id/txtRegionName"
+            android:layout_below="@+id/txtTaxBranchNameDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginTop="-10dp"
+            android:layout_marginLeft="10dp"
+            android:text=""
+            android:enabled="false"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/txtTimeOpen"
+            android:layout_below="@+id/txtRegionName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="0dp"
@@ -167,12 +190,11 @@
         <TextView
             android:id="@+id/txtTimeOpenDetail"
             android:layout_toRightOf="@+id/txtTimeOpen"
-            android:layout_below="@+id/txtTaxBranchName"
+            android:layout_below="@+id/edtRegionNameDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
-            android:text=""
+            android:text="-"
             android:textColor="@color/black"
             android:textSize="16sp"/>
 
@@ -183,16 +205,6 @@
         android:layout_height="match_parent"
         android:layout_weight="1">
 
-
-        <!--<fragment xmlns:android="http://schemas.android.com/apk/res/android"-->
-            <!--xmlns:map="http://schemas.android.com/apk/res-auto"-->
-            <!--xmlns:tools="http://schemas.android.com/tools"-->
-            <!--android:id="@+id/map"-->
-            <!--android:name="com.google.android.gms.maps.SupportMapFragment"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_margin="10dp"-->
-            <!--tools:context="com.june.testlab1.MapsActivity" />-->
 
         <RelativeLayout
             android:id="@+id/btnSearch"

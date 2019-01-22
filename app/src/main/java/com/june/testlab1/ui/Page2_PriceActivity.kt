@@ -8,6 +8,7 @@ import android.view.inputmethod.EditorInfo
 import com.june.testlab1.R
 import com.june.testlab1.networking.APIModule
 import com.june.testlab1.networking.modelAPI.checkprice.CheckPriceReq
+import com.june.testlab1.ui.Ma.ProgressDailog
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_page2__price.*
@@ -16,6 +17,12 @@ class Page2_PriceActivity : AppCompatActivity() {
 
     val ShowPostError = "รหัสไปรษณีย์ปลายทางผิด"
     val ShowBranchError = "รหัสสาขาผิด"
+    var progressbar : ProgressDailog? = null
+
+    init {
+        progressbar = ProgressDailog.shared()
+    }
+
     @SuppressLint("CheckResult")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +35,11 @@ class Page2_PriceActivity : AppCompatActivity() {
         }
 
         edtPostIdReceiver.setOnEditorActionListener() { v, actionId, event ->
+
+            if(!progressbar!!.isAdded){
+                progressbar?.show(supportFragmentManager,"Loading")
+            }
+
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 var body: CheckPriceReq = CheckPriceReq(edtPostIdReceiver.text.toString(), edtBranchID.text.toString())
 
@@ -52,9 +64,9 @@ class Page2_PriceActivity : AppCompatActivity() {
                                     edtBoxSPlusDetail.setText(it.branch!![9]!!.priceMap)
                                     edtBoxXLDetail.setText(it.branch!![10]!!.priceMap)
                                     edtBoxXXLDetail.setText(it.branch!![11]!!.priceMap)
-
                                     edtPriceZoneDetail.setText(it.branch!![0]!!.priceZone)
                                     txtZoneSendDetail.setText(it.branch!![0]!!.regionId)
+                                    progressbar?.dismiss()
                                 },
                                 //on Error
                                 { Log.e("Status", "On Error")
@@ -74,9 +86,9 @@ class Page2_PriceActivity : AppCompatActivity() {
                                     edtBoxSPlusDetail.setText("")
                                     edtBoxXLDetail.setText("")
                                     edtBoxXXLDetail.setText("")
-
                                     edtPriceZoneDetail.setText("")
                                     txtZoneSendDetail.setText("")
+                                    progressbar?.dismiss()
                                 },
                                 //On Complete
                                 { Log.e("Status", "On Complete") }
@@ -93,6 +105,11 @@ class Page2_PriceActivity : AppCompatActivity() {
 
 
         btnCheckPrice.setOnClickListener {
+
+            if(!progressbar!!.isAdded){
+                progressbar?.show(supportFragmentManager,"Loading")
+            }
+
             var body: CheckPriceReq = CheckPriceReq(edtPostIdReceiver.text.toString(), edtBranchID.text.toString())
             APIModule.checkpriceconnect().checkprice(body)
                     .subscribeOn(Schedulers.io())
@@ -114,9 +131,9 @@ class Page2_PriceActivity : AppCompatActivity() {
                                 edtBoxSPlusDetail.setText(it.branch!![9]!!.priceMap)
                                 edtBoxXLDetail.setText(it.branch!![10]!!.priceMap)
                                 edtBoxXXLDetail.setText(it.branch!![11]!!.priceMap)
-
                                 edtPriceZoneDetail.setText(it.branch!![0]!!.priceZone)
                                 txtZoneSendDetail.setText(it.branch!![0]!!.regionId)
+                                progressbar?.dismiss()
                             },
                             //on Error
                             { Log.e("Status", "On Error")
@@ -136,19 +153,17 @@ class Page2_PriceActivity : AppCompatActivity() {
                                 edtBoxSPlusDetail.setText("")
                                 edtBoxXLDetail.setText("")
                                 edtBoxXXLDetail.setText("")
-
                                 edtPriceZoneDetail.setText("")
                                 txtZoneSendDetail.setText("")
+                                progressbar?.dismiss()
                             },
                             //On Complete
                             { Log.e("Status", "On Complete") }
                     )
 
+            }
         }
-
-
     }
-}
 
 
 

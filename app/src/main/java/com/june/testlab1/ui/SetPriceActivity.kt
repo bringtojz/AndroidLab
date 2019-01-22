@@ -23,6 +23,8 @@ import org.jetbrains.anko.toast
 
 class SetPriceActivity : AppCompatActivity() {
 
+
+
     var showerror = "กรุณาใส่ชื่อสาขา"
     var progressbar : ProgressDailog? = null
 

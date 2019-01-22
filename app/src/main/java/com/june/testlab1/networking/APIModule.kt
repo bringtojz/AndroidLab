@@ -99,7 +99,7 @@ class APIModule {
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(MoshiConverterFactory.create())
                     .client(okHttpClient)
-                    .baseUrl("http://58.137.103.187:8081")
+                    .baseUrl("https://io.th.kerryexpress.com")
                     .build()
 
             return retrofit.create(APIService::class.java)
@@ -185,7 +185,7 @@ class APIModule {
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(MoshiConverterFactory.create())
                     .client(okHttpClient)
-                    .baseUrl("http://58.137.103.187:8081")
+                    .baseUrl("https://io.th.kerryexpress.com")
                     .build()
 
             return retrofit.create(APIService::class.java)
@@ -215,7 +215,7 @@ class APIModule {
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(MoshiConverterFactory.create())
                     .client(okHttpClient)
-                    .baseUrl("http://58.137.103.187:8081")
+                    .baseUrl("https://io.th.kerryexpress.com")
                     .build()
 
             return retrofit.create(APIService::class.java)

@@ -1,5 +1,6 @@
 package com.june.testlab1.ui
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
@@ -11,28 +12,19 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import com.june.testlab1.R
 import com.june.testlab1.networking.APIModule
-import com.june.testlab1.networking.modelAPI.BranchReq
+import com.june.testlab1.networking.modelAPI.searchbranch.BranchReq
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_page1.*
 import android.content.Intent
-import android.location.Location
-import android.location.LocationManager
-import android.widget.TextView
-import com.google.android.gms.common.ConnectionResult
-import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
-import com.june.testlab1.R.id.btnBack
-import com.livinglifetechway.k4kotlin.TAG
 
 import com.livinglifetechway.k4kotlin.toast
 
@@ -71,6 +63,7 @@ class Page1Fragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickLis
         return inflater.inflate(R.layout.fragment_page1, container, false)
     }
 
+    @SuppressLint("CheckResult")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -83,14 +76,16 @@ class Page1Fragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickLis
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(
                                 //on Next 200 OK
-                                { Log.e("Status", "On Next")
+                                {
+                                    Log.e("Status", "On Next")
                                     txtBranchNameDetail.text = it.branch!![0]!!.branchName.toString()
-                                    edtTypeBranch.setText( it.branch!![0]!!.branchType)
+                                    edtTypeBranch.setText(it.branch!![0]!!.branchType)
                                     btnCallPhone.isEnabled = true
-                                    edtTelDetail.setText (it.branch!![0]!!.taxTelephone)
+                                    edtTelDetail.setText(it.branch!![0]!!.taxTelephone)
                                     txvAddressDetail.text = it.branch!![0]!!.nameAddress.toString()
-                                    txtTaxBranchNameDetail.setText (it.branch!![0]!!.taxBranchName)
+                                    txtTaxBranchNameDetail.setText(it.branch!![0]!!.taxBranchName)
                                     txtTimeOpenDetail.text = it.branch!![0]!!.operatingDatetime.toString()
+                                    edtRegionNameDetail.setText(it.branch!![0]!!.regionName)
                                 },
                                 //on Error
                                 { Log.e("Status", "On Error")

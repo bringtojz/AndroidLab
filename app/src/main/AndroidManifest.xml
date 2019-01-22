@@ -75,7 +75,6 @@
         <activity android:name=".ui.ResultActivity" />
         <activity android:name=".recycleview.Page2RecycleViewActivity" />
         <activity android:name=".LoginWithApiActivity" />
-        <activity android:name=".ui.Page2_1Activity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

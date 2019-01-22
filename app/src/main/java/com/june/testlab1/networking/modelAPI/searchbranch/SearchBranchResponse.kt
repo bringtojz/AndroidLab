@@ -1,10 +1,10 @@
-package com.june.testlab1.networking.modelAPI
+package com.june.testlab1.networking.modelAPI.searchbranch
 
 
 import com.squareup.moshi.Json
 
 
-data class SearchResponse(
+data class SearchBranchResponse(
 
 	@Json(name="status_code")
 	val statusCode: String? = null,
