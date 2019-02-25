@@ -51,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:hint="*เช็คราคาเพื่อเทียบกับทาง SHOP"
+                android:hint="*เช็คราคาจากเลขไปรษณีย์เพื่อเทียบกับทาง SHOP"
                 android:textSize="16dp" />
 
         </RelativeLayout>
@@ -168,7 +168,50 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
+            <RelativeLayout
+                android:id="@+id/btnSearchMap"
+                android:layout_margin="2dp"
+                android:clickable="true"
+                android:foreground="?selectableItemBackground"
+                android:background="@drawable/btn_shadow"
+                android:elevation="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imgLogoSearchMap"
+                    android:layout_marginRight="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_map_location_128dp"/>
+
+                <TextView
+                    android:id="@+id/txtSearchMap"
+                    android:layout_below="@+id/imgLogoSearchMap"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SEARCH MAP"
+                    android:textSize="23dp"/>
+
+                <TextView
+                    android:id="@+id/txtHintSearchMap"
+                    android:layout_below="@id/txtSearchMap"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:hint="*ใช้ค้นหาตำแหน่ง SHOP , PSP"
+                    android:textSize="16dp" />
+
+            </RelativeLayout>
+
         </LinearLayout>
+
     </LinearLayout>
 
 

@@ -5,19 +5,17 @@ import com.june.testlab1.networking.modelAPI.addpostcode.AddPostCodeRequest
 import com.june.testlab1.networking.modelAPI.addpostcode.AddPostCodeResponse
 import com.june.testlab1.networking.modelAPI.checkprice.CheckPriceReq
 import com.june.testlab1.networking.modelAPI.checkprice.CheckPriceResponse
-import com.june.testlab1.networking.modelAPI.marvel.MarvelResponse
-import com.june.testlab1.networking.modelAPI.marvel.ResultsItem
+import com.june.testlab1.networking.modelAPI.getposprice.GetPosPriceRequest
+import com.june.testlab1.networking.modelAPI.getposprice.GetPosPriceResponse
 import com.june.testlab1.networking.modelAPI.searchbranch.BranchReq
 import com.june.testlab1.networking.modelAPI.searchbranch.SearchBranchResponse
 import com.june.testlab1.networking.modelAPI.setprice.SetPriceRequest
 import com.june.testlab1.networking.modelAPI.setprice.SetPriceRespone
-import com.june.testlab1.networking.modelAPI.starwar.StarResponse
 import com.june.testlab1.networking.modelAPI.user.RegisterApiReq
 import com.june.testlab1.networking.modelAPI.user.RegisterApiResponse
 import io.reactivex.Observable
 import okhttp3.ResponseBody
 import retrofit2.http.Body
-import retrofit2.http.GET
 import retrofit2.http.POST
 
 
@@ -50,4 +48,8 @@ interface APIService {
     //เพิ่มรหัสไปรษณีย์ครับ
     @POST ("possupportwebapi/v1/updateeMasterZipcodeEffectiveDate")
     fun addpostcode (@Body AddPostCodeRequest: AddPostCodeRequest ) : Observable <AddPostCodeResponse>
+
+    //เช็คราคาแบบเบื้องต้น
+    @POST ("possupportwebapi/v1/GetPosPrice")
+    fun getposprice (@Body getPosPriceRequest: GetPosPriceRequest) : Observable <GetPosPriceResponse>
 }

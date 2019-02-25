@@ -21,19 +21,30 @@
             android:layout_height="?attr/actionBarSize"
             app:title="Page2"
             app:titleTextColor="@color/white"
-            android:background="@color/orange"
-            app:navigationIcon="@drawable/ic_arrow_back_black_24dp"/>
+            android:background="@color/orange" />
         </android.support.design.widget.AppBarLayout>
 
     </LinearLayout>
 
     <ScrollView
-        android:layout_below="@id/lyToolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:layout_below="@id/lyToolbar"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp">
 
-        <include
-            layout="@layout/content_menu_support"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/content_menu_support" />
+
+            <include layout="@layout/content_menu_page2_support" />
+
+        </LinearLayout>
+
+
 
 
     </ScrollView>

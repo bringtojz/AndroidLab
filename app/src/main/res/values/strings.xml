@@ -1,8 +1,5 @@
 <resources>
     <string name="app_name">KE SUPPORT</string>
-    <string name="facebook_app_id">307642556668002</string>
-    <string name="fb_login_protocol_scheme">fb307642556668002</string>
-
 
     <string name="one">ONE 111</string>
     <string name="two">TWO 222</string>

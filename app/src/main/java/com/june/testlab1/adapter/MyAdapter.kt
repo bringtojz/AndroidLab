@@ -10,7 +10,7 @@ import com.june.testlab1.networking.modelAPI.marvel.ResultsItem
 import kotlinx.android.synthetic.main.list_item_recycleview.view.*
 
 
-class MyAdapter (private val aaaa: List<com.june.testlab1.networking.modelAPI.starwar.ResultsItem>): RecyclerView.Adapter<MyAdapter.MyHolder>() {
+class MyAdapter (private val aaaa: ArrayList<com.june.testlab1.networking.modelAPI.getposprice.BranchItem>): RecyclerView.Adapter<MyAdapter.MyHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
@@ -27,8 +27,9 @@ class MyAdapter (private val aaaa: List<com.june.testlab1.networking.modelAPI.st
 
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
-        holder.itemView.txtHeadTopic.text = aaaa[position].name
-        holder.itemView.txtDetail.text = aaaa[position].height
+        holder.itemView.txtSizeDesc.text = aaaa[position].sizeDesc
+        holder.itemView.txtPriceDetailBKK.text = aaaa[position].bKK
+        holder.itemView.txtPriceDetailUPC.text = aaaa[position].uPC
 
 
     }

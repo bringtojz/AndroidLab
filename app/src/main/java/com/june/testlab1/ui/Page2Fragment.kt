@@ -7,22 +7,15 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import com.june.testlab1.MapsActivity
 import com.june.testlab1.R
+import kotlinx.android.synthetic.main.activity_get_pos_price.*
+import kotlinx.android.synthetic.main.content_menu_page2_support.*
 //import com.june.testlab1.R.id.btnPassTo21
-import com.june.testlab1.adapter.MyAdapter
-import com.june.testlab1.networking.APIModule
-import com.june.testlab1.networking.modelAPI.starwar.ResultsItem
-import com.june.testlab1.ui.Ma.MaActivity
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.content_menu_support.*
-import kotlinx.android.synthetic.main.fragment_page2.*
-
 
 
 private const val ARG_PARAM1 = "param1"
@@ -70,6 +63,14 @@ class Page2Fragment : Fragment() {
 
         btnSetPrice.setOnClickListener {
             var intent: Intent = Intent(activity, SetPriceActivity::class.java)
+            startActivity(intent)
+        }
+        btnSearchMap.setOnClickListener {
+            var intent : Intent = Intent (activity , MapsActivity::class.java)
+            startActivity(intent)
+        }
+        btnCheckPriceBasic.setOnClickListener {
+            var intent : Intent = Intent( activity ,GetPosPriceActivity::class.java)
             startActivity(intent)
         }
     }
