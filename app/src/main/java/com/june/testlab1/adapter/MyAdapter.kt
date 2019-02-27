@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.june.testlab1.R
-import com.june.testlab1.networking.modelAPI.marvel.ResultsItem
 import kotlinx.android.synthetic.main.list_item_recycleview.view.*
 
 

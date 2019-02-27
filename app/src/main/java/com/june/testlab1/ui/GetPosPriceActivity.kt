@@ -2,8 +2,11 @@ package com.june.testlab1.ui
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
+import android.widget.Adapter
 import com.june.testlab1.R
+import com.june.testlab1.adapter.MyAdapter
 import com.june.testlab1.networking.APIModule
 import com.june.testlab1.networking.modelAPI.getposprice.GetPosPriceRequest
 import com.june.testlab1.ui.Ma.ProgressDailog
@@ -17,6 +20,8 @@ class GetPosPriceActivity : AppCompatActivity() {
     val ShowPostError = "รหัสไปรษณีย์ปลายทางผิด"
     val ShowBranchError = "รหัสสาขาผิด"
     var progressbar: ProgressDailog? = null
+
+
 
     init {
         progressbar = ProgressDailog.shared()
@@ -45,8 +50,7 @@ class GetPosPriceActivity : AppCompatActivity() {
                             //on Next 200 OK
                             {
                                 Log.e("Status", "On Next")
-                                txtSizeDesc.setText(it.branch!![0]!!.sizeDesc)
-
+                                my_recycler_view?.adapter
                                 progressbar?.dismiss()
                             },
                             //on Error
