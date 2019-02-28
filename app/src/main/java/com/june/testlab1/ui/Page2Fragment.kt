@@ -65,10 +65,10 @@ class Page2Fragment : Fragment() {
             var intent: Intent = Intent(activity, SetPriceActivity::class.java)
             startActivity(intent)
         }
-        btnSearchMap.setOnClickListener {
-            var intent : Intent = Intent (activity , MapsActivity::class.java)
-            startActivity(intent)
-        }
+//        btnSearchMap.setOnClickListener {
+//            var intent : Intent = Intent (activity , MapsActivity::class.java)
+//            startActivity(intent)
+//        }
         btnCheckPriceBasic.setOnClickListener {
             var intent : Intent = Intent( activity ,GetPosPriceActivity::class.java)
             startActivity(intent)

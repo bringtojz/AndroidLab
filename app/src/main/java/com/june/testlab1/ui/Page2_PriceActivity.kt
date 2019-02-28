@@ -72,6 +72,7 @@ class Page2_PriceActivity : AppCompatActivity() {
                                 { Log.e("Status", "On Error")
                                     edtBranchID.error = ShowBranchError
                                     edtPostIdReceiver.error = ShowPostError
+
                                     txtServiceDetail.text = ""
                                     edtRouteDetail.setText("")
                                     edtBoxSizeEnvelopDetail.setText("")
