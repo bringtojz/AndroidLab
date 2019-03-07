@@ -14,20 +14,21 @@
         android:layout_height="200dp"
         android:background="@drawable/btn_recycleview_shadow">
 
-       <LinearLayout
-           android:layout_weight="1"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent">
-           <TextView
-               android:id="@+id/txtHead"
-               android:layout_width="match_parent"
-               android:layout_height="match_parent"
-               android:gravity="center"
-               android:text="Tel"
-               android:textColor="@color/white"
-               android:textSize="35dp"/>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-       </LinearLayout>
+            <TextView
+                android:id="@+id/txtHead"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="SHOP MAP "
+                android:textColor="@color/white"
+                android:textSize="35dp"/>
+
+        </LinearLayout>
 
         //เส้นใต้คำ
         <LinearLayout
@@ -41,18 +42,18 @@
         </LinearLayout>
 
         <!--<LinearLayout-->
-            <!--android:layout_weight="1"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent">-->
+        <!--android:layout_weight="1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
 
-            <!--<TextView-->
-                <!--android:id="@+id/txtPhoneNumber"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:gravity="center"-->
-                <!--android:text="xxxxxx"-->
-                <!--android:textSize="30dp"-->
-                <!--android:textColor="@color/white"/>-->
+        <!--<TextView-->
+        <!--android:id="@+id/txtCallBranchName"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:gravity="center"-->
+        <!--android:text="xxxxxx"-->
+        <!--android:textSize="30dp"-->
+        <!--android:textColor="@color/white"/>-->
 
         <!--</LinearLayout>-->
         //เส้นใต้คำ
@@ -78,14 +79,14 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/txtCancelCall"
+                    android:id="@+id/txtCancelCallMap"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:foreground="?selectableItemBackground"
                     android:gravity="center"
                     android:text="ยกเลิก"
                     android:textColor="@color/red_error"
-                    android:textSize="25sp" />
+                    android:textSize="25sp"/>
 
             </LinearLayout>
 
@@ -96,12 +97,12 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/txtCall"
+                    android:id="@+id/txtCallMap"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:foreground="?selectableItemBackground"
                     android:gravity="center"
-                    android:text="โทร"
+                    android:text="ดูแผนที่"
                     android:textColor="@color/white"
                     android:textSize="25sp" />
             </LinearLayout>

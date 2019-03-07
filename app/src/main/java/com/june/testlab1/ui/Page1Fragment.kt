@@ -34,6 +34,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 
 import com.livinglifetechway.k4kotlin.toast
 import kotlinx.android.synthetic.main.activity_result.*
+import kotlinx.android.synthetic.main.popup_callmap.*
 import kotlinx.android.synthetic.main.popup_callphone.*
 import org.w3c.dom.Text
 
@@ -42,20 +43,13 @@ private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 
-class Page1Fragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
-    override fun onMapReady(p0: GoogleMap?) {
-
-    }
+class Page1Fragment : Fragment() {
 
     private var param1: String? = null
     private var param2: String? = null
     private lateinit var map: GoogleMap
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private var listener: OnFragmentInteractionListener? = null
-
-
-
-    override fun onMarkerClick(p0: Marker?) = false
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -91,6 +85,7 @@ class Page1Fragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickLis
                                     edtTypeBranch.setText(it.branch!![0]!!.branchType)
                                     btnCallPhone.isEnabled = true
                                     edtTelDetail.setText(it.branch!![0]!!.taxTelephone)
+                                    txvAddressDetail.isEnabled = true
                                     txvAddressDetail.text = it.branch!![0]!!.nameAddress.toString()
                                     txtTaxBranchNameDetail.setText(it.branch!![0]!!.taxBranchName)
                                     txtTimeOpenDetail.text = it.branch!![0]!!.operatingDatetime.toString()
@@ -113,6 +108,10 @@ class Page1Fragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickLis
 
         }
 
+        btnMap.setOnClickListener {
+            searchMap(txvAddressDetail.text.toString())
+        }
+
         btnCallPhone.setOnClickListener {
             callPhone(edtTelDetail.text.toString())
 
@@ -120,7 +119,7 @@ class Page1Fragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickLis
 
         btnSearch.setOnClickListener {
 
-            var body: BranchReq = BranchReq(edtBranchID.text.toString())
+            var body = BranchReq(edtBranchID.text.toString())
             APIModule.connectsearchbranch().searchbranch(body)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -131,13 +130,18 @@ class Page1Fragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickLis
                                 edtTypeBranch.setText( it.branch!![0]!!.branchType)
                                 edtTelDetail.isEnabled = true
                                 edtTelDetail.setText (it.branch!![0]!!.taxTelephone)
+                                txvAddressDetail.isEnabled = true
                                 txvAddressDetail.text = it.branch!![0]!!.nameAddress.toString()
+                                edtRegionNameDetail.setText(it.branch!![0]!!.regionName)
                                 txtTaxBranchNameDetail.setText (it.branch!![0]!!.taxBranchName)
                                 txtTimeOpenDetail.text = it.branch!![0]!!.operatingDatetime.toString()
 
+
                             },
                             //on Error
-                            { Log.e("Status", "On Error") },
+                            { Log.e("Status", "On Error")
+                                toast("ใส่ชื่อ branch ผิด.")
+                            },
                             //On Complete
                             { Log.e("Status", "On Complete") }
                     )
@@ -188,28 +192,49 @@ class Page1Fragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickLis
         val dialog = Dialog(context)
 
         dialog.setContentView(R.layout.popup_callphone)
+            dialog.window.apply {
+                setLayout(WindowManager.LayoutParams.WRAP_CONTENT,
+                        WindowManager.LayoutParams.WRAP_CONTENT)
+                setGravity(Gravity.CENTER)
+                setBackgroundDrawableResource(R.color.darkgray)
+                val textRemove = dialog.findViewById<TextView>(R.id.txtCancelCall)
+                    textRemove.setOnClickListener { dialog.dismiss() }
+
+        }
+            dialog.show()
+
+        val textCall = dialog.findViewById<TextView>(R.id.txtCall)
+            textCall.setOnClickListener { startActivity(intent) }
+    }
+
+    private fun  searchMap (address : String){
+        val intent = Intent (Intent.ACTION_WEB_SEARCH,Uri.parse("address :$address"))
+        val dialog = Dialog(context)
+
+        dialog.setContentView(R.layout.popup_callmap)
         dialog.window.apply {
             setLayout(WindowManager.LayoutParams.WRAP_CONTENT,
                     WindowManager.LayoutParams.WRAP_CONTENT)
             setGravity(Gravity.CENTER)
             setBackgroundDrawableResource(R.color.darkgray)
-            val textRemove = dialog.findViewById<TextView>(R.id.txtCancelCall)
+            val textRemove = dialog.findViewById<TextView>(R.id.txtCancelCallMap)
             textRemove.setOnClickListener { dialog.dismiss() }
 
         }
         dialog.show()
-        val textCall = dialog.findViewById<TextView>(R.id.txtCall)
-        textCall.setOnClickListener { startActivity(intent) }
-        }
+            val textCall = dialog.findViewById<TextView>(R.id.txtCallMap)
+            textCall.setOnClickListener { startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/maps?q=" + txvAddressDetail.text))) }
+
+    }
 
 
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState?.putCharSequence("BranchName", txtBranchNameDetail.text.toString())
-        outState?.putCharSequence("Address", txvAddressDetail.text.toString())
-        outState?.putCharSequence("TimeOpen", txtTimeOpenDetail.text.toString())
-        outState?.putCharSequence("TelDetail", edtTelDetail.text.toString())
+        outState.putCharSequence("BranchName", txtBranchNameDetail.text.toString())
+        outState.putCharSequence("Address", txvAddressDetail.text.toString())
+        outState.putCharSequence("TimeOpen", txtTimeOpenDetail.text.toString())
+        outState.putCharSequence("TelDetail", edtTelDetail.text.toString())
 
     }
 

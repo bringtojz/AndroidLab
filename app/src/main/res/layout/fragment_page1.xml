@@ -10,7 +10,8 @@
     <RelativeLayout
         android:id="@+id/lyTop"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:layout_weight="1">
 
         <EditText
             android:id="@+id/edtBranchID"
@@ -93,8 +94,7 @@
             android:layout_below="@id/txtBranchName"
             android:layout_toRightOf="@id/edtTelDetail"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/ic_local_phone_black_24dp"
-            />
+            android:background="@drawable/ic_local_phone_black_24dp" />
 
 
         <TextView
@@ -119,11 +119,21 @@
             android:textSize="16sp"
             android:textColor="@color/black" />
 
+        <ImageView
+            android:id="@+id/btnMap"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="20dp"
+            android:background="@drawable/ic_placeholder_128dp"/>
+
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:layout_weight="1">
 
         <TextView
             android:id="@+id/txtTaxBranchName"
@@ -193,6 +203,7 @@
             android:layout_below="@+id/edtRegionNameDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:layout_marginLeft="10dp"
             android:text="-"
             android:textColor="@color/black"
@@ -202,8 +213,9 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_height="wrap_content"
+        android:layout_weight="1.6"
+        android:layout_gravity="bottom">
 
 
         <RelativeLayout
