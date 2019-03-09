@@ -3,47 +3,35 @@ package com.june.testlab1.ui
 import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Context
-import android.content.DialogInterface
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.util.Log
+import android.view.*
 import android.view.inputmethod.EditorInfo
+import android.widget.TextView
+import android.widget.Toast
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.maps.GoogleMap
 import com.june.testlab1.R
+import com.june.testlab1.dialog.CallPhoneDialog
 import com.june.testlab1.networking.APIModule
 import com.june.testlab1.networking.modelAPI.searchbranch.BranchReq
+import com.livinglifetechway.k4kotlin.toast
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_page1.*
-import android.content.Intent
-import android.content.Intent.getIntent
-import android.support.v4.content.ContextCompat.startActivity
-import android.support.v7.app.AlertDialog
-import android.view.*
-import android.widget.TextView
-import android.widget.Toast
-import com.facebook.FacebookSdk.getApplicationContext
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.Marker
-import com.google.android.gms.maps.model.MarkerOptions
-
-import com.livinglifetechway.k4kotlin.toast
-import kotlinx.android.synthetic.main.activity_result.*
-import kotlinx.android.synthetic.main.popup_callmap.*
-import kotlinx.android.synthetic.main.popup_callphone.*
-import org.w3c.dom.Text
 
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 
-class Page1Fragment : Fragment() {
+class Page1Fragment : Fragment(), CallPhoneDialog.DialogOnClickListener {
+
+
 
     private var param1: String? = null
     private var param2: String? = null
@@ -186,26 +174,26 @@ class Page1Fragment : Fragment() {
                 }
     }
 
-    private  fun callPhone(mobileNo : String){
 
-        val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:$mobileNo"))
-        val dialog = Dialog(context)
+    private  fun callPhone(mobileNo : String) {
+        val fragmentDialog: CallPhoneDialog = CallPhoneDialog.Builder().phonenumberdialog(mobileNo).builder()
+        fragmentDialog.isCancelable = false
+        fragmentDialog.show(childFragmentManager, "fragmentDialog")
 
-        dialog.setContentView(R.layout.popup_callphone)
-            dialog.window.apply {
-                setLayout(WindowManager.LayoutParams.WRAP_CONTENT,
-                        WindowManager.LayoutParams.WRAP_CONTENT)
-                setGravity(Gravity.CENTER)
-                setBackgroundDrawableResource(R.color.darkgray)
-                val textRemove = dialog.findViewById<TextView>(R.id.txtCancelCall)
-                    textRemove.setOnClickListener { dialog.dismiss() }
 
-        }
-            dialog.show()
-
-        val textCall = dialog.findViewById<TextView>(R.id.txtCall)
-            textCall.setOnClickListener { startActivity(intent) }
     }
+
+    override fun oncallphone(v: View?) {
+        Toast.makeText(v?.context, "Cancel Phone", Toast.LENGTH_SHORT).show()
+    }
+
+
+    override fun oncancelcall(v: View?) {
+        Toast.makeText(v?.context, "Cancel Phone", Toast.LENGTH_SHORT).show()
+    }
+
+
+
 
     private fun  searchMap (address : String){
         val intent = Intent (Intent.ACTION_WEB_SEARCH,Uri.parse("address :$address"))
@@ -226,6 +214,7 @@ class Page1Fragment : Fragment() {
             textCall.setOnClickListener { startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/maps?q=" + txvAddressDetail.text))) }
 
     }
+
 
 
 
